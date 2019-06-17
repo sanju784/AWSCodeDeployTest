@@ -1,3 +1,3 @@
 #!/bin/bash
-apt install nginx
+echo "install dependencies"
 

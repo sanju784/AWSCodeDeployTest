@@ -1,3 +1,3 @@
 #!/bin/bash
-systemctl start nginx
+echo "start server"
 
