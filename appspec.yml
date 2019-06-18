@@ -3,6 +3,10 @@ os: linux
 files:
   - source: /project/
     destination: /var/www/html/
+permissions:
+  - object: /var/www/html/
+    owner: www-data
+    group: www-data
 #write for exception as public/media/
 #write storage/ as exception
 #write for composer install under start server
