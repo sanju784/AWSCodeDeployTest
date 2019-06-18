@@ -10,16 +10,5 @@ permissions:
 #write for exception as public/media/
 #write storage/ as exception
 #write for composer install under start server
-hooks:
-  BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 300
-      runas: root
-    - location: scripts/start_server
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_server
-      timeout: 300
-      runas: root
+
 
