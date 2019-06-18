@@ -10,5 +10,6 @@ permissions:
 #write for exception as public/media/
 #write storage/ as exception
 #write for composer install under start server
+#composer install is good to write under AfterInstall
 
 
