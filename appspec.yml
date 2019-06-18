@@ -7,8 +7,9 @@ permissions:
   - object: /var/www/html/
     owner: www-data
     group: www-data
-    mode: 755
-
+#write for exception as public/media/
+#write storage/ as exception
+#write for composer install under start server
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
