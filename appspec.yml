@@ -8,8 +8,7 @@ permissions:
     owner: www-data
     group: www-data
     mode: 755
-    type:
-      - directory
+
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
