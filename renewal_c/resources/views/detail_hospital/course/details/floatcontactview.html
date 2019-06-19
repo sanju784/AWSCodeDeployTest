@@ -1,0 +1,72 @@
+<div id="floatContactView">
+	<!-- ========カレンダー非表示時======== -->
+	{{ IF H.paycall }}
+	<!-- ペイパーコール表示 -->
+	<div class="no_calendar" style="display:none;" >
+	<section class="contactPanel">
+	<a href="/detail_hospital/{{ hospitalCode }}/course.html" class="orangeBtn01 course">
+	<p><em>検査コース一覧を見る</em></p>
+	</a>
+	<div class="orangeBtn01 tel">
+	<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+	</div>
+	</section>
+	<!-- /.no_calendar --></div>
+	<!-- /ペイパーコール表示 -->
+	{{ END }}
+	
+	{{ UNLESS H.paycall }}
+	<!-- IVR表示 -->
+	<div class="no_calendar" style="display:none;" >
+	<section class="contactPanel">
+	<a href="/detail_hospital/{{ hospitalCode }}/course.html" class="orangeBtn01 course">
+	<p><em>検査コース一覧を見る</em></p>
+	</a>
+	<div class="orangeBtn01 tel ivr">
+	<p>EPARK人間ドック予約受付ダイヤル<br><em>0066-9809-0000127</em></p>
+	<p><span>24時間受付<br>通話料無料</span></p>
+	</div>
+	</section>
+	<!-- /.no_calendar --></div>
+	<!-- /IVR表示 -->
+	{{ END }}
+	<!-- ========/カレンダー非表示時======== -->
+	
+	<!-- ========カレンダー表示時======== -->
+	<div class="yes_calendar" >
+	{{ IF H.paycall }}
+	<!-- ペイパーコール表示 -->
+	<section class="contactPanel">
+	<div class="calendarBtn">
+	<a href="#calender" class="orangeBtn01 calendar" onclick="dataLayer.push({'event':'checkvacancy','action':'空席確認（空き状況）','category':'EPARK人間ドック','label':'{{ hospitalNo }} {{ hospitalName }}'});">
+	<p><em>空き状況の確認・予約はこちらから</em></p>
+	</a>
+	<div class="calendarPopup">×週間以内に受診できます</div>
+	</div>
+	<div class="orangeBtn01 tel">
+	<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+	</div>
+	</section>
+	<!-- /ペイパーコール表示 -->
+	{{ END }}
+	
+	{{ UNLESS H.paycall }}
+	<!-- IVR表示 -->
+	<section class="contactPanel">
+	<div class="calendarBtn">
+	<a href="#calender" class="orangeBtn01 calendar" onclick="dataLayer.push({'event':'checkvacancy','action':'空席確認（空き状況）','category':'EPARK人間ドック','label':'{{ hospitalNo }} {{ hospitalName }}'});">
+	<p><em>空き状況の確認・予約はこちらから</em></p>
+	</a>
+	<div class="calendarPopup">×週間以内に受診できます</div>
+	</div>
+	<div class="orangeBtn01 tel ivr">
+	<p>EPARK人間ドック予約受付ダイヤル<br><em>0066-9809-0000127</em></p>
+	<p><span>24時間受付<br>通話料無料</span></p>
+	</div>
+	</section>
+	<!-- /IVR表示 -->
+	{{ END }}
+	</div>
+	<!-- ========/カレンダー表示時======== -->
+	<div class="closeView">閉じる</div>
+</div>

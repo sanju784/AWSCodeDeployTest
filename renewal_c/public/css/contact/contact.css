@@ -1,0 +1,92 @@
+h2 .comment { font-size: 1rem; }
+
+nav#breadcrumb ul { padding-bottom: 10px; }
+
+#mainContent { width: 100%; }
+
+.ssTitle:before { position: relative;
+    border: 3px solid #8fc31f;
+    content: '';
+    top: 2px;
+    left: 0;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border-radius: 50%; }
+
+#contact h4 { font-weight:bold; margin-top:20px; }
+
+#contact .cnt-error {
+  text-align:center;
+}
+#contact .cnt-error p {
+  color: #ff4400;
+  font-weight: bold;
+}
+
+#contact #read ul.attention { margin-bottom:20px; }
+#contact #read ul.attention li { font-size:1rem; line-height:1.8rem; }
+#contact #read ul.attention li span { margin-right:5px; }
+#contact #read p { margin-bottom:20px; }
+#contact #read p a:hover img { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }
+
+#contact table tr th { border-right: none; width: 230px; }
+#contact table tr td { border-left: none; padding: 18px; color: #666; }
+#contact table tr td p { margin-bottom: 6px; }
+#contact table tr td br.mgn { line-height: 42px; }
+#contact table tr td .checkbox01 { padding-left: 33px; }
+#contact table tr td .checkbox01:before { left: 7px; }
+#contact table tr td .checkbox01:after  { left: 0; }
+#contact table tr td input+.checkbox01 { margin-left: 10px; }
+#contact table tr td input[type=text]:first-child { margin-left: 0; }
+#contact table tr td input[type=text]+input { margin-left: 0; }
+#contact table tr td input[type=text]#zip2 { margin-left: 10px; }
+#contact table tr td input[type=text]#city { width: 342px; }
+#contact table tr td input[type=text].half { width: 350px; margin-left: 0; }
+#contact table tr td input[type=text].long { width: 565px; }
+#contact table tr td .radio01 { padding-left: 33px; }
+#contact table tr td .radio01:before { left: 5px; }
+#contact table tr td .radio01:after  { left: 0; }
+#contact table tr td label+input[type=radio]+label { margin-left: 10px; }
+#contact table tr td ul { border-bottom:1px solid #ccc; margin-bottom:20px; }
+
+#contact .aboutAgreement { margin-top:40px; }
+#contact .aboutAgreement label { border:1px solid #ccc; padding:10px 20px 10px 45px; border-radius:8px; }
+
+.btn { text-align: center; }
+.btn p+p { margin-left: 20px; }
+
+/* privacy-ul */
+.privacy-ul {
+	list-style-type:disc;
+	list-style-position:outside;
+	margin-left:20px;
+}
+/* privacy-ul */
+
+/* orange Button */
+.send { position: relative; display: inline-block; width: 320px; height: 40px; line-height: 40px; background-color: #fe8f00; border-radius: 3px; border:none; text-align: center; color: #fff !important; text-decoration: none !important; line-height: 40px; cursor: pointer; font-weight: bold; font-size: 19.2px; outline:none; }
+.send:before { position: absolute;
+  content: ''; display: block; top: 14px; left: 16px; pointer-events: none; width: 8px; height: 8px; border-right: 4px solid #fff; border-bottom: 4px solid #fff; border-radius: 4px;
+  -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); border-radius: 2px; }
+.send:hover { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }
+/* orange Button */
+
+
+/* confirm */
+#submit { text-align: center; margin-bottom: 60px; padding: 40px 0 0; }
+.wordbreak{
+	word-break: break-all;
+}
+/* confirm */
+
+
+/* finish */
+#finish p { margin: 1em 0; }
+.back { position: relative; display: inline-block; width: 400px; height: 40px; line-height: 40px; margin: 90px auto; background-color: #6b9f01; border-radius: 3px; text-align: center; color: #fff !important; text-decoration: none !important; line-height: 40px; cursor: pointer; font-weight: bold; font-size: 19.2px; }
+.back:before { position: absolute;
+  content: ''; display: block; top: 14px; left: 16px; pointer-events: none; width: 8px; height: 8px; border-right: 4px solid #fff; border-bottom: 4px solid #fff; border-radius: 4px;
+  -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); border-radius: 2px; }
+.back:hover { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }
+/* finish */

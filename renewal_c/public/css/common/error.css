@@ -1,0 +1,31 @@
+header { border-bottom:1px solid #ccc; }
+nav#breadcrumb ul { padding-bottom: 10px; }
+div#pageTitle { height: 117px; background-position: center top; margin-top: 46px; }
+#error #pageTitle h1,
+#error #pageTitle p { font-size: 36px; font-weight: bold; line-height: 100px; }
+h2 .comment { font-size: 1rem; }
+
+div#docSec { display: none; }
+nav#mainNav { display: none; }
+section#groupSite { display: none; }
+
+#mainContent { width: 100%; }
+
+.btn { text-align: center; margin: 40px auto; }
+.btn span { margin: 0 6px auto; }
+
+.msg { padding: 30px; text-align: center; cursor: auto; }
+
+/* course page link */
+.jump a { position: relative; display: inline-block; width: 360px; height: 40px; line-height: 40px; background-color: #fe8f00; border-radius: 3px; text-align: center; color: #fff !important; text-decoration: none !important; line-height: 40px; cursor: pointer; font-weight: bold; font-size: 19.2px; }
+.jump a:before { position: absolute;
+    content: ''; display: block; top: 14px; left: 16px; pointer-events: none; width: 8px; height: 8px; border-right: 4px solid #fff; border-bottom: 4px solid #fff; border-radius: 4px;
+    -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); border-radius: 2px; }
+.jump a:hover { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }
+
+/* top page link */
+.back a { position: relative; display: inline-block; width: 360px; height: 40px; line-height: 40px; background-color: #6b9f01; border-radius: 3px; text-align: center; color: #fff !important; text-decoration: none !important; line-height: 40px; cursor: pointer; font-weight: bold; font-size: 19.2px; }
+.back a:before { position: absolute;
+    content: ''; display: block; top: 14px; left: 16px; pointer-events: none; width: 8px; height: 8px; border-right: 4px solid #fff; border-bottom: 4px solid #fff; border-radius: 4px;
+    -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); border-radius: 2px; }
+.back a:hover { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }

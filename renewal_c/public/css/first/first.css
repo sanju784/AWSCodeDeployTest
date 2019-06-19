@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.stepWrapper {
+  overflow: hidden;
+  margin: 0 0 40px;
+}
+.step {
+  float: left;
+  width: 260px;
+  margin: 0 20px 0 0;
+}
+.step:last-child {
+  margin: 0;
+}
+.step .label {
+  text-align: center;
+  border-radius: 6px;
+  background-color: #eff8f8;
+  font-weight: bold;
+  padding: 15px 0;
+  margin: 0 0 10px;
+}
+.step .contents {
+  border: 1px solid #cccccc;
+  height: 85px;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.greenBtn01 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 280px;
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 auto;
+  display: inline-block;
+}

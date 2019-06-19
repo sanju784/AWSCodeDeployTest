@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+/******************************************************************************
+ * LOGIN FORM
+ *****************************************************************************/
+#main table { display: block; width: 360px; margin: 0px auto; padding: 10px; background: #fff; border-radius: 6px; border: 2px solid #ccc; }
+#main th { padding: 5px; text-align: left; font-weight: normal; }
+#main td { padding: 5px; }
+#txtId     { ime-mode: disabled; }
+#txtPasswd { ime-mode: disabled; }

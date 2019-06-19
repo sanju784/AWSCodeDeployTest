@@ -1,0 +1,243 @@
+<script type="text/javascript" src="/ajs/popup.js"></script>
+{{ include('detail_hospital/course/parts_popup.html') }}
+<article>
+	<div id="resultView">
+
+		<div id="facilities">
+
+			<div id="contentHeader">
+		{{ BEGIN files.g3 }}
+		{{ BEGIN l1 }}
+				<p class="read">{{ title }}</p>
+				<p>{{ caption }}{{ nl2br(descliption) }}</p>
+		{{ END }}
+		{{ END }}
+				<ul>
+			{{ BEGIN files.g5 }}
+			{{ BEGIN l1 }}
+					<li class="mhItem">
+						<figure>
+							<img src="{{ url }}" alt="{{ memo1 }}" width="266" height="200" />
+							<figcaption>{{ title }}</figcaption>
+						</figure>
+						<p><a href="#korawari01">こだわりその1を見る</a></p>
+					</li>
+			{{END}}
+			{{ BEGIN l2 }}
+					<li class="mhItem">
+						<figure>
+							<img src="{{ url }}" alt="{{ memo1 }}" width="266" height="200" />
+							<figcaption>{{ title }}</figcaption>
+						</figure>
+						<p><a href="#korawari02">こだわりその2を見る</a></p>
+					</li>
+			{{END}}
+			{{ BEGIN l3 }}
+					<li class="mhItem">
+						<figure>
+							<img src="{{ url }}" alt="{{ memo1 }}" width="266" height="200" />
+							<figcaption>{{ title }}</figcaption>
+						</figure>
+						<p><a href="#korawari03">こだわりその3を見る</a></p>
+					</li>
+			{{END}}
+			{{ BEGIN l4 }}
+					<li class="mhItem">
+						<figure>
+							<img src="{{ url }}" alt="{{ memo1 }}" width="266" height="200" />
+							<figcaption>{{ title }}</figcaption>
+						</figure>
+						<p><a href="#korawari04">こだわりその4を見る</a></p>
+					</li>
+			{{END}}
+			{{ END }}
+				</ul>
+			</div>
+		{{ IF files.g8 }}
+			<div id="photos">
+				<h2 class="sTitle">施設写真</h2>
+				<ul>
+					<li class="mainPhoto">
+						<figure>
+							<img src="" alt="" width="530" height="398" />
+							{{ IF g8caption }}<figcaption>{{ g8caption }}</figcaption>{{ END }}
+						</figure>
+					</li>
+			{{ BEGIN g8only }}
+					<li class="sumPhoto01 mhItem">
+						<figure>
+				{{ IF url }}
+							<img src="{{ url }}" alt="{{ memo1 }}" width="245" height="184" />
+							<figcaption>{{ c.aption }}{{ memo2 }}</figcaption>
+				{{ END IF }}
+						</figure>
+					</li>
+			{{ END IF }}
+				</ul>
+				<div class="centerButton"><a href="photo.html" class="greenBtn01">施設写真をもっと見る</a></div>
+			</div>
+			{{ END IF files.g8 }}
+			<div id="schedule">
+				<h2 class="sTitle">診療時間</h2>
+				<div>
+					<table>
+						<thead>
+							<tr>
+								<th>診療時間</th>
+								<th>月</th>
+								<th>火</th>
+								<th>水</th>
+								<th>木</th>
+								<th>金</th>
+								<th>土</th>
+								<th>日</th>
+								<th>祝</th>
+							</tr>
+						</thead>
+						<tbody>
+				{{ BEGIN times }}
+				{{ IF $start }}
+							<tr>
+								<th>{{ $start }}～{{ $end }}</th>
+								<td><span class="{{ if($mon,'on','no') }}">{{ if($mon,'&#9675;','&times;') }}</span></td>
+								<td><span class="{{ if($tue,'on','no') }}">{{ if($tue,'&#9675;','&times;') }}</span></td>
+								<td><span class="{{ if($wed,'on','no') }}">{{ if($wed,'&#9675;','&times;') }}</span></td>
+								<td><span class="{{ if($thu,'on','no') }}">{{ if($thu,'&#9675;','&times;') }}</span></td>
+								<td><span class="{{ if($fry,'on','no') }}">{{ if($fry,'&#9675;','&times;') }}</span></td>
+								<td><span class="{{ if($sat,'on','no') }}">{{ if($sat,'&#9675;','&times;') }}</span></td>
+								<td><span class="{{ if($sun,'on','no') }}">{{ if($sun,'&#9675;','&times;') }}</span></td>
+								<td><span class="{{ if($hol,'on','no') }}">{{ if($hol,'&#9675;','&times;') }}</span></td>
+							</tr>
+				{{ END }}
+				{{ END }}
+						</tbody>
+					</table>
+					<p>休診日：{{ strConsultation }}{{ IF consultationNote }}（{{ consultationNote }}）{{ END IF }}</p>
+					<p>{{ H.memo }}</p>
+				</div>
+				<div>
+					<a href="/detail_hospital/{{ hospitalCode }}/course.html" class="orangeBtn01 course">
+					<p><em>検査コース一覧を見る</em></p>
+					</a>
+					{{ IF H.paycall }}
+					<!-- ペイパーコール表示 -->
+					<div class="orangeBtn01 tel">
+					<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+					</div>
+					<!-- /ペイパーコール表示 -->
+					{{ END }}
+
+					{{ UNLESS H.paycall }}
+					<!-- IVR表示 -->
+					<div class="orangeBtn01 tel ivr">
+					<p>EPARK人間ドック予約受付ダイヤル<br><em>0066-9809-0000127</em></p>
+					<p><span>24時間受付<br>通話料無料</span></p>
+					</div>
+					<ul class="txt">
+					<li>※予約専用の番号です。施設直通の番号ではありません。</li>
+					<li>※次の時間帯は自動応答での折り返し受付となります。<br>・平日夕方18時から翌朝9時まで・土日祝日</li>
+					</ul>
+					<!-- /IVR表示 -->
+					{{ END }}
+				</div>
+			</div>
+
+			<div id="access">
+				<h2 class="sTitle">地図・アクセス</h2>
+				<div id="accessMapArea">
+					<div id="gmap"><iframe src="{{ mapUrl }}" width="1100" height="420" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+					{{ IF streetview_url }}
+					<div id="gearth"><iframe src="{{ streetview_url }}" width="1100" height="420" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+					<ul>
+						<li id="s_gmap" class="active">地図</li>
+						<li id="s_gearth">ストリートビュー</li>
+					</ul>
+					{{ END IF }}
+				</div>
+				{{ IF files.g4 }}
+				{{ BEGIN files.g4.l1 }}
+				<div id="accessMovieArea">
+					<iframe src="{{ memo1 }}" width="100%" height="100%" allowfullscreen></iframe>
+				</div>
+				{{ END }}
+				{{ END }}
+			</div>
+
+		{{ IF files.g5 }}
+			<div id="kodawari">
+				<h2 class="sTitle">{{ hospitalName }}のこだわり</h2>
+		{{ BEGIN files.g5 }}
+		{{ BEGIN l1 }}
+				<div id="korawari01">
+					<h3><img src="/detail_hospital/img/point01.png" alt="こだわり その1" width="140" height="40"  />{{ title }}<!-- {{ memo2 }} --></h3>
+					<img class="{{ position }}" src="{{ url }}" alt="{{ memo1 }}" width="340" height="255" />
+					{{ caption }}
+				</div>
+		{{ END }}
+		{{ BEGIN l2 }}
+				<div id="korawari02">
+					<h3><img src="/detail_hospital/img/point02.png" alt="こだわり その2" width="140" height="40" />{{ title }}<!-- {{ memo2 }} --></h3>
+					<img class="{{ position }}" src="{{ url }}" alt="{{ memo1 }}" width="340" height="255" />
+					{{ caption }}
+				</div>
+		{{ END }}
+		{{ BEGIN l3 }}
+				<div id="korawari03">
+					<h3><img src="/detail_hospital/img/point03.png" alt="こだわり その3" width="140" height="40" />{{ title }}<!-- {{ memo2 }} --></h3>
+					<img class="{{ position }}" src="{{ url }}" alt="{{ memo1 }}" width="340" height="255" />
+					{{ caption }}
+				</div>
+		{{ END }}
+		{{ BEGIN l4 }}
+				<div id="korawari04">
+					<h3><img src="/detail_hospital/img/point04.png" alt="こだわり その4" width="140" height="40" />{{ title }}<!-- {{ memo2 }} --></h3>
+					<img class="{{ position }}" src="{{ url }}" alt="{{ memo1 }}" width="340" height="255" />
+					{{ caption }}
+				</div>
+		{{ END }}
+		{{ END }}
+			</div>
+		{{ END }}
+
+		{{ BEGIN files.g6 }}
+			<div id="interview">
+				<h2 class="sTitle">インタビュー</h2>
+		{{ BEGIN l1 }}
+				<div>
+					<img src="{{ url }}" style="width:340px" alt="{{ memo1 }}" class="left">
+					<h3>{{ title }}</h3>
+					<p>{{ caption }}</p>
+					<div class="moreButton">インタビューを見る</div>
+				</div>
+				<div>{{ interview }}</div>
+		{{ END }}
+			</div>
+		{{ END }}
+
+		{{ IF files.g7 }}
+			<div id="staff">
+				<h2 class="sTitle">医師・スタッフ</h2>
+		{{ BEGIN files.g7 }}
+					<div>
+						<img src="{{ url }}" style="width:340px;" xsrc="http://placehold.it/340x256/999/bbb" alt="{{ memo1 }}" class="left">
+						<div>
+							<h3>{{ h_name }}</h3>
+							<p>{{ memo }}</p>
+							<p>{{ career }}</p>
+						</div>
+					</div>
+				{{ END }}
+			</div>
+		{{ END }}
+
+		{{ H.free_area }}
+
+		{{ include('detail_hospital/parts_other_course.html') }}
+		{{ include('detail_hospital/parts_info.html') }}
+
+		</div>
+
+	{{ include('detail_hospital/parts_etc.html') }}
+
+	</div>
+</article>

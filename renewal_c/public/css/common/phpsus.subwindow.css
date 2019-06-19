@@ -1,0 +1,56 @@
+/**
+ *
+ **/
+#subwindow {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 10000;
+	width: 900px;
+	height: 100%;
+	background: #fff;
+	border: solid 1px #333;
+}
+
+#subwindow iframe {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	z-index: 10010;
+	width: 100%;
+	height: 200px;
+	margin: 0;
+	border: none;
+}
+
+#subwindow div.bar {
+	height: 26px;
+	padding: 2px;
+	background: url("/images/sub_menu_background_img2.gif") repeat-x;
+}
+
+#subwindow .bar img.close {
+	float: right;
+	cursor: pointer;
+}
+
+#subwindow .bar #subwin_title {
+	margin: 0 100px 0 4px;
+	padding: 2px 0 0 20px;
+	height: 20px;
+	font-weight: bold;
+	color: #fff;
+	background: url("/images/ui/system.png") no-repeat left center;
+}
+
+#subwindow #subwin_close {
+	float: right;
+	margin: 0 1ex;
+	padding: 1px 4px;
+}
+
+#subwindow #subwin_close > div {
+	padding: 0 0 0 20px;
+	background: url("/images/ui/cross.png") no-repeat left center;
+}

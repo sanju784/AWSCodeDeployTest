@@ -1,0 +1,268 @@
+{{include('mypage/headtag.html')}}
+<body>
+<script type="text/javascript" src="/ajs/popup.js"></script>
+{{ include('detail_hospital/course/parts_popup.html') }}
+{{include('header.html')}}
+	<div class="container">
+		<div id="mainContent">
+			<nav id="breadcrumb">
+				<ul>
+					<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+					<li>マイページ</li>
+				</ul>
+			</nav>
+
+			<div style="line-height:0;"><a href="https://www.epark.jp/campaign/family/kosodate?utm_source=www.docknet.jp&utm_medium=banner&utm_campaign=201710premium_children&utm_content=mypage&utm_term=20180329" target="_blank"><img src="https://www.epark.jp/event/family/forDev/mtm_kosodate_1200_60.png" alt="EPARKの子育て割" style="width:100%;"></a></div>
+
+			<article id="mypage">
+				<h1 class="mTitle">{{ display_name }}さんのマイページ</h1>
+				<ul class="tab">
+					<li class="current"><a href="/mypage/">マイページトップ</a></li><li><a href="/mypage/accept.html">予約履歴</a></li><li><a href="/mypage/favorite.html">お気に入り</a></li><li><a href="/mypage/information.html">会員情報</a></li>
+				</ul>
+					<section>
+
+						<h2 class="sTitle">予約履歴</h2>
+						{{ BEGIN MY_ACCEPT }}
+						<dl class="list">
+							<p>受診希望日：{{ ymd(start_date) }} 　申込日：{{ ymd(accept_date) }}</p>
+							{{ IF ERROR }}<p class="warning">{{ ERROR }}</p>{{ END IF }}
+							{{ UNLESS ERROR }}
+							<dt class="dTitle green mt0">
+								<div>{{ name }}</div>
+								{{ IF price_taxin }}
+									<div><span class="red">料金：</span><span class="fs24px red">{{ number_format(total_amount) }}円</span><span>（税込）</span>
+									{{ IF flg_price_memo }}<br><span>{{ price_memo }}</span>{{ END IF }}</div>
+								{{ END IF }}
+								{{ UNLESS price_taxin }}
+									<div>{{ price_memo }}</div>
+								{{ END UNLESS }}
+							</dt>
+							<dd>
+								<ul class="photo">
+									<li class="mainphoto"><img src="{{ img1 }}" alt="{{ alt1 }}"></li>
+								</ul>
+								<div class="details" style="display:none;">
+									<p>{{ course_point_desc }}　<a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">続きを見る</a></p>
+									{{ IF osusume }}
+									<p class="recommend">こんな方にオススメ</p>
+									<ul>
+										{{ BEGIN osusume }}
+										<li>{{ inputstring }}</li>
+										{{ END }}
+									</ul>
+									{{ END IF }}
+								</div>
+								<div class="details">
+									<h3>検査コース</h3>
+									<p>{{name}}：{{ IF price_taxin }}{{ number_format(price_taxin) }}円（税込）{{ END IF }}{{ UNLESS price_taxin }}{{ price_memo }}{{ END UNLESS }}</p>
+									{{ IF options }}
+									<h3>オプション</h3>
+									{{ BEGIN options }}
+									<p>{{ option_name }}：{{ number_format(option_price_tax) }}円（税込）</p>
+									{{ END }}
+									{{ END }}
+									<h3>決済方法</h3>
+									<p>{{ IF payment_flg == '1'}}
+											事前カード決済済み
+									   {{ ELSE }}
+											現地決済
+									   {{END IF}}
+									</p>
+								</div>
+								<div class="moreDetails" style="clear:left;">
+									<div class="address">
+										<p><a href="/detail_hospital/{{ hospital_code }}/basic.html">{{ hospital_name }}</a><span>（{{ pref_name }}{{ district_name }}）</span></p>
+										<p>{{ pref_name }} {{ district_name }}{{ address1 }}{{ address2 }}　<a href="/detail_hospital/{{ hospital_code }}/basic.html#access">地図</a></p>
+									</div>
+								</div>
+								{{ IF alive }}
+									{{ IF deadline_flg }}
+										<p class="cancelBlock">
+											ご受診日が近いため、マイページからの変更・キャンセル受付は終了させていただきました。<br>
+											お手数おかけいたしますが、変更・キャンセルご希望の場合は、直接{{ hospital_name }}（電話番号：{{ tel }}）へお電話ください。
+										</p>
+									{{ ELSE IF }}
+										{{ IF payment_flg == '1'}}
+										<!--事前決済-->
+										<p class="cancelBlock">
+											<a href="{{ alive }}"  class="delete">キャンセル</a>
+											※キャンセルは、{{ deadline_day }}まで受付けております。
+										</p>
+										{{ ELSE }}
+										<!--現地決済-->
+										<p class="cancelBlock">
+											<a href="{{ alive }}" class="delete">キャンセル・予約内容の変更</a>
+											※変更・キャンセルは、{{ deadline_day }}まで受付けております。
+										</p>
+										{{ END IF }}
+									{{ END IF }}
+								{{ END IF }}
+
+							</dd>
+							{{ END UNLESS }}
+						</dl>
+						{{ END }}
+						<div class="moreList">
+							<a href="/mypage/accept.html">予約履歴一覧を見る</a>
+						</div>
+					</section>
+
+					<section id="my_hospital">
+						<h2 class="sTitle">お気に入りの医療機関</h2>
+						<dl class="list">
+							{{ BEGIN MY_HOSPITAL }}
+							<dt class="dTitle blue"><a href="/detail_hospital/{{ code }}/basic.html">{{ name }}</a><span>（{{ pref_name }} {{ district_name }}）</span></dt>
+							<dd>
+								<div class="iconBlock">
+									<ul class="cate">
+										{{ BEGIN hospital_icon }}
+										<li>{{ icon_name }}</li>
+										{{ END }}
+										{{ IF icon_special }}
+										<li class="assessment">{{ icon_special }}</li>
+										{{ END IF }}
+									</ul>
+								</div>
+								<ul class="photo">
+									<li class="mainphoto"><img src="{{ img1 }}" alt="{{ alt1 }}" id="mainphoto_{{ hospital_no }}"></li>
+									<li hospital="{{ hospital_no }}"><img src="{{ img1 }}" alt="{{ alt1 }}"></li>
+									<li hospital="{{ hospital_no }}"><img src="{{ img2 }}" alt="{{ alt2 }}"></li>
+									<li hospital="{{ hospital_no }}"><img src="{{ img3 }}" alt="{{ alt3 }}"></li>
+									<li hospital="{{ hospital_no }}"><img src="{{ img4 }}" alt="{{ alt4 }}"></li>
+								</ul>
+								<div class="details">
+									<p>{{ description }}　<a href="/detail_hospital/{{ code }}/basic.html">続きを見る</a></p>
+									<p class="update">更新日：{{ ymd(updt) }}</p>
+									<ul>
+										<li class="address">{{ pref_name }} {{ district_name }}{{ address1 }}{{ address2 }}　<a href="/detail_hospital/{{ code }}/basic.html#access">地図</a></li>
+										<li class="access">最寄り駅：{{ stations }}</li>
+										<li class="holiday">休診日：{{ consultation_note }}</li>
+									</ul>
+								</div>
+								<p class="right"><a href="{{ delete }}" class="delete delmyshop" onclick="dataLayer.push({'event':'delmyshop','action':'施設登録を削除','category':'EPARK人間ドック','label':'{{ no }} {{ name }}'});">お気に入りから削除する</a></p>
+							</dd>
+							{{ END }}
+						</dl>
+					</section>
+
+					<section id="my_course">
+						<h2 class="sTitle">お気に入りの検査コース</h2>
+						<dl class="list">
+							{{ BEGIN MY_COURSE }}
+							<dt class="dTitle green">
+								<div><a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">{{ name }}</a></div>
+								<div>
+									{{ IF flg_price }}
+										<!-- 事前決済価格 -->
+										{{ IF flg_pre_account }}
+										<span class="jizenPriceIcon">事前決済価格</span><br>
+										<span class="red">料金：</span><span class="fs24px red">{{ number_format(pre_account_price_taxin) }}円</span><span>（税込）</span><br>
+										<!-- 通常価格 -->
+										{{ ELSE }}
+										<span class="red">料金：</span><span class="fs24px red">{{ number_format(price_taxin) }}円</span><span>（税込）</span><br>
+										{{ END IF }}
+									{{ END IF }}
+									{{ IF flg_price_memo }}<span>{{ price_memo }}</span>{{ END IF }}</div>
+							</dt>
+							<dd>
+								<div class="iconBlock">
+									<ul class="cate">
+										<!-- 事前カード払いアイコン -->
+										{{ IF flg_pre_account}}
+											{{ IF flg_local_payment }}
+											<li class="jizenCardIcon">事前カード払い可</li>
+											{{ ELSE }}
+											<li class="jizenCardIcon">事前カード払いのみ</li>
+											{{ END IF }}
+										{{ END IF }}
+										<!-- /事前カード払いアイコン -->
+										{{ BEGIN course_icon }}
+										<li>{{ icon_name }}</li>
+										{{ END }}
+										{{ IF OPTION }}<li>オプションあり</li>{{ END }}
+									</ul>
+									<ul class="cate gr">
+										{{ BEGIN course_item_icon }}
+										<li class='popup'>{{ icon_name }}</li>
+										{{ END }}
+									</ul>
+								</div>
+								<ul class="photo">
+									<li class="mainphoto"><img src="{{ img1 }}" alt="{{ alt1 }}"></li>
+								</ul>
+								<div class="details">
+									<p>{{ course_point_desc }}　<a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">続きを見る</a></p>
+									{{ IF osusume }}
+									<p class="recommend">こんな方にオススメ</p>
+									<ul>
+										{{ BEGIN osusume }}
+										<li>{{ inputstring }}</li>
+										{{ END }}
+									</ul>
+									{{ END IF }}
+								</div>
+								<div class="moreDetails">
+									<table>
+									{{ IF VACANCY }}
+										<tr>
+											{{ BEGIN VACANCY }}
+											<th>{{ mm }}月</th>
+											{{ END }}
+										</tr>
+										<tr>
+											{{ BEGIN  VACANCY }}
+									        {{ IF 2appOk}}<td><a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">○</a></td>{{ END IF }}
+											{{ IF appOk}}<td><span style="color:blue;">○</span></td>{{ END IF }}
+											{{ UNLESS appOk}}<td>×</td>{{ END IF }}
+											{{ END }}
+										</tr>
+									{{ END IF }}
+									{{ UNLESS VACANCY }}
+									{{ IF paycall }}
+									<!-- ペイパーコール表示 -->
+									<dl>
+									<dt>このコースのご予約は<br>お電話にて<br>承っております。</dt>
+									<dd>
+									<!--<p class="title">医療機関直通ダイヤル</p>-->
+									<p class="tel mt10">{{ paycall }}<br><span class="tel-num-gray">（通話料無料・24時間受付）</span></p>
+									</dd>
+									</dl>
+									<!-- /ペイパーコール表示 -->
+									{{ END IF paycall }}
+									{{ UNLESS paycall }}
+									<!-- IVR表示 -->
+									<dl>
+									<dt>こちらのコースのご予約は<br>お電話またはメールにて<br>承っております。</dt>
+									<dd>
+									<!--<p class="title">人間ドック・検診受付専用ダイヤル</p>-->
+									<p class="tel">0066-9809-0000127<br><span class="tel-num-gray">（通話料無料・24時間受付）</span></p>
+									<p class="mail"><a href="/contact/">メールで問い合わせる</a></p>
+									</dd>
+									</dl>
+									<!-- IVR表示 -->
+									{{ END UNLESS paycall }}
+									{{ END UNLESS }}
+									</table>
+									<div>
+										<a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html" class="booking navyBtn01" onclick="dataLayer.push({'event':'checkvacancy','action':'空席確認（詳細確認）','category':'EPARK人間ドック','label':'{{ hospital_no }} {{ hospital_name }}'});">詳細を見て予約する</a>
+										<a href="{{ delete }}" class="delete delmyshop" onclick="dataLayer.push({'event':'delmyshop','action':'コース登録を削除','category':'EPARK人間ドック','label':'{{ hospital_no }} {{ hospital_name }}'});">お気に入りから削除する</a>
+									</div>
+									<div class="address">
+										<p><a href="/detail_hospital/{{ hospital_code }}/basic.html">{{ hospital_name }}</a><span>（{{ pref_name }}{{ district_name }}）</span></p>
+										<p>{{ pref_name }} {{ district_name }}{{ address1 }}{{ address2 }}　<a href="/detail_hospital/{{ hospital_code }}/basic.html#access">地図</a></p>
+									</div>
+								</div>
+							</dd>
+							{{ END }}
+						</dl>
+						<div class="moreList">
+							<a href="/mypage/favorite.html">お気に入りを見る</a>
+						</div>
+					</section>
+			</article>
+			<script id="mypage_script_loader" type="text/javascript" src="{{ API_COUPON }}/js/script_loader/v2_mypage_src_loader.js?{{ RAND }}" data-client_id="karadadock"></script>
+		</div>
+	</div><!-- .container -->
+{{include('footer.html')}}
+</body>
+</html>

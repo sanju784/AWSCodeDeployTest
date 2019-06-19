@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+ol {
+  list-style-type: decimal;
+  margin: 0 0 30px 40px;
+}

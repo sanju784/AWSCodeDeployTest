@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/*
+	全サイト向け、スタイルリセッター
+	ブラウザー間の視覚差異を埋めるために、HTMLの標準スタイルを定義します.
+	※各自で編集しないこと※
+
+	サイト全体のコンテンツ構造に関わる記述	→ /css/common.css
+	一覧表形式ページの基本スタイル			→ /css/list.css
+	編集ページの基本スタイル				→ /css/edit.css
+*/
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+html{overflow-y:scroll;}
+
+
+html,body {
+	margin: 0px;
+	padding: 0px;
+	font-size: small;
+}
+
+h1,h2,h3,h4,h5,h6,body,html,p,li,dt,dd,pre,form,fieldset,td,th {
+	font-weight: normal;
+	color: #000000;
+	font-style: normal;
+	font-size: inherit;
+	line-height: 1.5;
+	font-family: sans-serif;
+}
+
+ul,ol,dl,img {
+	margin: 0px;
+	padding: 0px;
+}
+ul,ol,li {
+	list-style-type: none;
+}
+table{
+	border-collapse:collapse;
+	border:0px;
+}
+
+img {
+	border: none;
+	font-size: 0%;
+	line-height: 0%;
+	vertical-align: bottom;
+}
+
+option { padding: 0 0.5ex; }
+
+button { outline: none;cursor:pointer; }
+/*--ボタンの点線を消去 --*/
+button{
+padding:0;
+margin:0;
+cursor:pointer;
+overflow:hidden;
+outline:none;
+}
+button::-moz-focus-inner {
+border-style: none;
+}
+
+/*ClearFix*/
+.clearfix:after {
+	content: ".";
+	clear: both;
+	height: 0;
+	display: block;
+	visibility: hidden;
+}
+.clearfix {
+	display: inline-block;
+}
+.clearfix {
+	display: block;
+}
+
+a:link{color:#296d96;}
+a:active{color:#c2535c;}
+a:hover{color:#c2535c;text-decoration:none;}
+a:visited{color:#296d96;}

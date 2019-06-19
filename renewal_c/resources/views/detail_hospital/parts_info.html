@@ -1,0 +1,68 @@
+{{ BEGIN COMMENT }}
++--------+--------------------------------+
+| chu_no | chu_name                       |
++--------+--------------------------------+
+|      1 | アクセスについて               |
+|      2 | クレジットカード対応           |
+|      3 | 外国語対応                     |
+|      4 | 認定施設について               |
+|      5 | 女性対応                       |
+|      6 | お子さま対応                   |
+|      7 | 施設について                   |
+|      8 | 食事について                   |
+|      9 | 併用施設について               |
+|     10 | 周辺施設について               |
+|     11 | プライバシー配慮               |
+|     12 | 検査結果                       |
++--------+--------------------------------+
+{{ END COMMENT }}
+<div class="info _info_" style="display:none;" id="facility">
+	<h2>{{ hospitalName }}</h2>
+	<div>
+		<dl>
+			<dt>住所</dt>
+			<dd>{{ strAreaName }}{{ strAddress }} <a href="/detail_hospital/{{ hospitalCode  }}/basic.html#access">地図・アクセス</a></dd>
+			<dt>休診日</dt>
+			<dd>{{ strConsultation }}{{ IF consultationNote }}（{{ consultationNote }}）{{ END IF }}</dd>
+			<dt>認定施設について</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c4) }}　</dd>
+			<dt>施設について</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c7) }}　</dd>
+			<dt>責任者</dt>
+			<dd>{{ this::ddd($headDoctorName,headDoctorHistory) }}</dd>
+		</dl>
+		<dl>
+			<dt>最寄り駅</dt>
+			<dd>{{ this::ddd($strStationName) }}</dd>
+			<dt>アクセスについて</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c1) }}　</dd>
+			<dt>クレジットカード対応</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c2) }}</dd>
+			<dt>外国語対応</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c3) }}</dd>
+			<dt>女性対応</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c5) }}</dd>
+			<dt>お子さま対応</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c6) }}</dd>
+			<dt>プライバシー配慮</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c11) }}</dd>
+			<dt>検査結果</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c12) }}</dd>
+			<dt>食事について</dt>
+			<dd>{{ this::ddd(hospitalcategory.k2.c8) }}</dd>
+			<dt>併用施設について</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c9) }}</dd>
+			<dt>周辺施設について</dt>
+			<dd>{{ this::ddd($hospitalcategory.k2.c10) }}</dd>
+		</dl>
+	</div>
+</div>
+<script type="text/javascript" src="/ajs/info.js"></script>
+
+<div class="modInfo">
+<h3>掲載している情報についてのご注意</h3>
+<p>各医療機関の情報（所在地、診療時間等）について誤りがある場合は、お手数ですが右のメールフォームからお問い合わせをお願い致します。<a href="" target="_blank">誤りを報告する</a></p>
+</div>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-594c78ce7ddd79d0"></script>
+<div class="addthis_inline_share_toolbox_1vmr"></div>

@@ -1,0 +1,59 @@
+	<nav id="breadcrumb">
+            <!-- [{{ meta.type }}] -->
+		<ul>
+            {{ this::equal(meta.type,"detail_basic.html") }}
+            {{ IF equal }}
+			<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+			<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+			{{ if strAreaName2 }}
+			<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+			{{ end }}
+			<li>{{ hospitalName }}の予約</li>
+            {{ end IF }}
+
+
+            {{ this::equal(meta.type,"detail_course.html") }}
+            {{ IF equal }}
+			<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+			<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+			{{ if strAreaName2 }}
+			<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+			{{ end }}
+			<li><a href="./basic.html">{{ hospitalName }}の予約</a></li>
+			<li>{{ hospitalName }}の検査コース一覧</li>
+            {{ end IF }}
+
+            {{ this::equal(meta.type,"detail_calendar.html") }}
+            {{ IF equal }}
+			<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+			<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+			{{ if strAreaName2 }}
+			<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+			{{ end }}
+			<li><a href="./basic.html">{{ hospitalName }}の予約</a></li>
+			<li>{{ hospitalName }}の空き状況カレンダー</li>
+            {{ end IF }}
+
+            {{ this::equal(meta.type,"detail_photo.html") }}
+            {{ IF equal }}
+			<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+			<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+			{{ if strAreaName2 }}
+			<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+			{{ end }}
+			<li><a href="./basic.html">{{ hospitalName }}の予約</a></li>
+			<li>{{ hospitalName }}の写真</li>
+            {{ end IF }}
+
+            {{ this::equal(meta.type,"detail") }}
+            {{ IF equal }}
+			<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+			<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+			{{ if strAreaName2 }}
+ 			<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+			{{ end }}
+			<li><a href="../basic.html">{{ hospitalName }}の予約</a></li>
+			<li>{{ hospitalName }}の{{ C.name }}予約</li>
+            {{ end IF }}
+		</ul>
+	</nav>

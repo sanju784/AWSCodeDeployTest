@@ -1,0 +1,89 @@
+h2 .comment { font-size: 1rem; }
+
+nav#breadcrumb ul { padding-bottom: 10px; }
+
+#mainContent { width: 100%; }
+
+#keisai h4 { font-weight:bold; margin-top:20px; }
+
+#keisai .cnt-error {
+  text-align:center;
+}
+#keisai .cnt-error p {
+  color: #ff4400;
+  font-weight: bold;
+}
+
+#keisai #read .panel { border: 1px solid #ccc; border-radius: 6px; padding:16px; width:680px; margin:40px auto; box-sizing:border-box; }
+#keisai #read ul { width:320px; margin:0 auto 20px; }
+#keisai #read ul li { list-style-type:disc; margin-left:20px; }
+#keisai #read p { margin-bottom:20px; }
+#keisai #read .lCatch { font-size:2rem; font-weight:bold; text-align:center; color:#8fc31f; }
+
+#keisai table tr th { border-right: none; width: 230px; }
+#keisai table tr td { border-left: none; padding: 18px; color: #666; }
+#keisai table tr td p { margin-bottom: 6px; }
+#keisai table tr td br.mgn { line-height: 42px; }
+#keisai table tr td .checkbox01 { padding-left: 33px; }
+#keisai table tr td .checkbox01:before { left: 7px; }
+#keisai table tr td .checkbox01:after  { left: 0; }
+#keisai table tr td input+.checkbox01 { margin-left: 10px; }
+#keisai table tr td input[type=text]:first-child { margin-left: 0; }
+#keisai table tr td input[type=text]+input { margin-left: 0; }
+#keisai table tr td input[type=text]#zip2,
+#keisai table tr td input[type=text]#zip1 { margin-left: 10px; }
+#keisai table tr td input[type=text]#prefacture { width: 342px; }
+#keisai table tr td input[type=text].half { width: 350px; margin-left: 0; }
+#keisai table tr td input[type=text].long { width: 565px; }
+#keisai table tr td .radio01 { padding-left: 33px; }
+#keisai table tr td .radio01:before { left: 5px; }
+#keisai table tr td .radio01:after  { left: 0; }
+#keisai table tr td label+input[type=radio]+label { margin-left: 10px; }
+#keisai table tr td div.select-wrap,
+#keisai table tr td div.select-wrap select { width: 150px; }
+#keisai table tr td div.select-wrap:before { top: 14px; }
+#keisai table tr td div.select-wrap.state { margin: 0 15px 0 10px; }
+#keisai table tr td div.select-wrap + div.select-wrap { margin-left: 10px; }
+#keisai table tr td ul { border-bottom:1px solid #ccc; margin-bottom:20px; }
+
+#keisai .aboutAgreement { margin-top:40px; }
+#keisai .aboutAgreement label { border:1px solid #ccc; padding:10px 20px 10px 45px; border-radius:8px; }
+
+.navyBtn01 { width: 113px; height: 40px; line-height: 40px; }
+
+.btn { text-align: center; }
+.btn p+p { margin-left: 20px; }
+
+/* privacy-ul */
+.privacy-ul {
+	list-style-type:disc;
+	list-style-position:outside;
+	margin-left:20px;
+}
+/* privacy-ul */
+
+/* orange Button */
+.send { position: relative; display: inline-block; width: 320px; height: 40px; line-height: 40px; background-color: #fe8f00; border-radius: 3px; text-align: center; color: #fff !important; text-decoration: none !important; line-height: 40px; cursor: pointer; font-weight: bold; font-size: 19.2px; border:none; outline:none; }
+.send:before { position: absolute;
+  content: ''; display: block; top: 14px; left: 16px; pointer-events: none; width: 8px; height: 8px; border-right: 4px solid #fff; border-bottom: 4px solid #fff; border-radius: 4px;
+  -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); border-radius: 2px; }
+.send:hover { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }
+/* orange Button */
+
+
+/* confirm */
+#submit { text-align: center; margin-bottom: 60px; padding: 40px 0 0; }
+.wordbreak{
+	word-break: break-all;
+}
+/* confirm */
+
+
+/* finish */
+#finish p { margin: 1em 0; }
+.back { position: relative; display: inline-block; width: 400px; height: 40px; line-height: 40px; margin: 90px auto; background-color: #6b9f01; border-radius: 3px; text-align: center; color: #fff !important; text-decoration: none !important; line-height: 40px; cursor: pointer; font-weight: bold; font-size: 19.2px; }
+.back:before { position: absolute;
+  content: ''; display: block; top: 14px; left: 16px; pointer-events: none; width: 8px; height: 8px; border-right: 4px solid #fff; border-bottom: 4px solid #fff; border-radius: 4px;
+  -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg); border-radius: 2px; }
+.back:hover { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }
+/* finish */

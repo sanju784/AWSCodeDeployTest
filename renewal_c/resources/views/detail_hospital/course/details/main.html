@@ -1,0 +1,434 @@
+<script type="text/javascript" src="/ajs/detail_hospital.js?ver=0825a"></script>
+<script type="text/javascript">
+detail_hospital.no="{{ C.hospital_code }}";
+detail_hospital.cs="{{ C.code }}";
+</script>
+
+<article>
+	<div id="resultView">
+		<h2 class="mTitle">{{ hospitalName }}</h2>
+		{{ include('detail_hospital/parts_details.html') }}
+
+		<div id="scCourse" class="dtl">
+			<nav id="resultTab" class="greenTab">
+			<ul>
+				<li id="showFacilities"><a href="/detail_hospital/{{ hospitalCode }}/basic.html">施設情報</a></li>
+				<li id="showCourse" class="on"><a href="/detail_hospital/{{ hospitalCode }}/course.html">検査コース</a></li>
+				<li id="showCalendar"><a href="/detail_hospital/{{ hospitalCode }}/calendar.html">空き状況カレンダー</a></li>
+				<li id="showPhoto"><a href="/detail_hospital/{{ hospitalCode }}/photo.html">写真</a></li>
+			</ul>
+			</nav>
+
+			<dl class="list">
+				<dt class="dTitle green fav">
+					<div>
+						{{ C.name }}<br>
+						{{ IF C.flg_price }}
+							{{ IF C.flg_pre_account_facility }}
+								{{ IF C.flg_pre_account_course }}
+									<span class="jizenPriceIcon">事前決済価格</span>
+									<span class="red">料金：</span>
+									<span class="fs24px red">{{ number_format(C.pre_account_price_taxin) }}円</span><span>（税込）</span><br>
+								{{ ELSE }}
+									<span class="red">料金：</span>
+									<span class="fs24px red">{{ number_format(C.price_taxin) }}円</span><span>（税込）</span><br>
+								{{ END IF }}
+							{{ ELSE }}
+								<span class="red">料金：</span>
+								<span class="fs24px red">{{ number_format(C.price_taxin) }}円</span><span>（税込）</span><br>
+							{{ END IF }}
+						{{ END IF }}
+						{{ if C.flg_price_memo }}<span>{{ C.price_memo }}</span>{{ end }}
+					</div>
+					{{ UNLESS C.consideration }}
+			<div><a href="/mypage/favorite.html?cmd-add=1&hno={{ hospitalNo }}&cno={{ C.course_no }}#my_course" class="favorite addmyshop" onclick="dataLayer.push({'event':'addmyshop','action':'コース検討中登録','category':'EPARK人間ドック','label':'{{ hospitalNo }} {{ hospitalName }}'});">このコースをお気に入りへ保存</a></div>
+					{{ END UNLESS }}
+				</dt>
+				<dd>
+
+					<!-- ========空き状況カレンダー======== -->
+					<div id="calender" style="_display:none;">
+					<h2 class="sTitle">{{ C.name }}の空き状況カレンダー</h2>
+
+					{{ IF CALENDER }}
+					<p>×…受付不可　△…お電話でお問い合わせください。</p>
+
+					<ul>
+					{{ BEGIN CALENDER }}
+						{{ cal0 }}
+						{{ cal1 }}
+						{{ cal2 }}
+						{{ cal3 }}
+						{{ cal4 }}
+						{{ cal5 }}
+					{{ END }}
+						{{ BEGIN TABLE }}
+						<li class="li_calendar">
+							<table>
+								<caption>{{ y }}年{{m}}月</caption>
+								<thead class="calendar_loaded" style="display:none;">
+									<tr>
+										<th class="sun">日</th>
+										<th>月</th>
+										<th>火</th>
+										<th>水</th>
+										<th>木</th>
+										<th>金</th>
+										<th class="sat">土</th>
+									</tr>
+								</thead>
+								<tbody class="calendar_loaded" style="display:none;">
+									{{ BEGIN WEEK }}
+									<tr>
+										{{ BEGIN DT }}
+										{{ UNLESS dt }}<td class="non">&nbsp;</td>{{ END IF }}
+										{{ IF dt }}
+										<td class="{{ class }}" date="{{ fulldate }}">
+											{{ IF past }}
+											<div class="cl">受付<br>終了</div>
+											{{ END IF }}
+											{{ UNLESS past }}
+											<div aclass="re">
+												<b>{{ dt }}</b>
+												<a class="no" style="display:none;">×</a>
+												<a class="yes" style="display:none;" href=""><p>2</p><span>予約</span></a>
+												<a class="holiday" style="display:none;">休</a>
+											</div>
+											{{ END UNLESS }}
+										</td>
+										{{ END }}
+										{{ END }}
+									</tr>
+									{{ END }}
+								</tbody>
+							</table>
+						<div class="calendar_loading" style="width:100%;height:150px;padding-top:20%;text-align:center;"><img src="/common/img/common/loading_green.gif"/></div>
+						</li>
+						{{ END }}
+						<a class="calendar_loaded calendarPage calendar-prev disabled" style="display:none;" href="javascript:detail_hospital.clickCalendarPage(0);"></a>
+						<a class="calendar_loaded calendarPage calendar-next"          style="display:none;" href="javascript:detail_hospital.clickCalendarPage(1);"></a>
+					</ul>
+					{{ END }}
+
+					{{ IF CALENDER }}
+					<!-- ========カレンダー表示時======== -->
+					<div class="yes_calendar" >
+					<p style="{{ this::printIfEmpty('display:none;',$C.course_notice,$C.course_cancel) }}">このコースは受診に関しての注意事項がございます。<a href="#notice">注意事項</a>をご確認の上、ご予約ください。</p>
+					<p>医療機関の状況（急遽検査機器が使えない状況となったなど）により、受診希望日に受診できない場合があります。<br>予約内容送信後、直接医療機関とご相談の上、日程調整をお願いします。</p>
+					{{ IF H.paycall }}
+					<!-- ペイパーコール表示 -->
+					<section class="contactPanel">
+					<div class="orangeBtn01 tel">
+					<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+					</div>
+					</section>
+					<!-- /ペイパーコール表示 -->
+					{{ END }}
+
+					{{ UNLESS H.paycall }}
+					<!-- IVR表示 -->
+					<section class="contactPanel">
+					<div class="orangeBtn01 tel">
+					<p>EPARK人間ドック予約受付ダイヤル<span>24時間受付・通話料無料</span><br><em>0066-9809-0000127</em></p>
+					</div>
+					</section>
+					<!-- /IVR表示 -->
+					{{ END }}
+					</div>
+					{{ END }}
+					<!-- ========/カレンダー表示時======== -->
+
+					<!-- ========カレンダー非表示時======== -->
+					{{ IF H.paycall }}
+					<!-- ペイパーコール表示 -->
+					<div class="no_calendar" style="display:none;" id="no_calendar">
+					<p><b>このコースのご予約はお電話にて承っております。</b></p>
+					<section class="contactPanel">
+					<div class="orangeBtn01 tel">
+					<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+					</div>
+					</section>
+					<!-- /.no_calendar --></div>
+					<!-- /ペイパーコール表示 -->
+					{{ END }}
+
+					{{ UNLESS H.paycall }}
+					<!-- IVR表示 -->
+					<div class="no_calendar" style="display:none;" >
+					<p><b>このコースのご予約はお電話、またはメールにて承っております。</b></p>
+					<section class="contactPanel">
+					<div class="orangeBtn01 tel">
+					<p>EPARK人間ドック予約受付ダイヤル<span>24時間受付・通話料無料</span><br><em>0066-9809-0000127</em></p>
+					</div>
+					<a href="/contact/" class="orangeBtn01 mail">
+					<p>ご希望の条件から医療機関・コースをご提案<br><em>メールで問い合わせ</em></p>
+					</a>
+					</section>
+					<!-- /.no_calendar --></div>
+					<!-- /IVR表示 -->
+					{{ END }}
+					<!-- ========/カレンダー非表示時======== -->
+
+					</div>
+					<!-- ========/空き状況カレンダー======== -->
+
+
+					<div>
+						<h3 class="sTitle">このコースの特徴</h3>
+						<div class="iconBlock">
+							<ul class="cate">
+							<!-- 事前カード払いアイコン -->
+								{{ IF C.flg_pre_account_facility}}
+									{{ IF C.flg_pre_account_course }}
+										{{ IF C.flg_local_payment }}
+											<li class="jizenCardIcon">事前カード払い可</li>
+										{{ ELSE }}
+											<li class="jizenCardIcon">事前カード払いのみ</li>
+										{{ END IF }}
+									{{ END IF }}
+								{{ END IF }}
+							<!-- /事前カード払いアイコン -->
+							{{ this::showIcons(C.dcs.k2.tokucho,"<li>","</li> ") }}
+							{{ IF OPTION }}<li>オプションあり</li>{{ END }}
+							</ul>
+						</div>
+						<ul class="photo">
+						{{ BEGIN C.file.file_location_no_1 }}
+							<li class="mainphoto"><img src="{{ url }}" alt="{{ memo1 }}" width="240" height="160"></li>
+						{{ END }}
+						</ul>
+						<div class="details">
+							<p>{{ nl2br( C.course_point ) }}</p>
+						</div>
+						<table class="taCenter">
+							<tr>
+								{{ if txtTime    }}<th nowrap>所要時間</th>{{ END IF }}
+								{{ if txtStartTm }}<th nowrap>検査開始時間</th>{{ END IF }}
+								{{ if txtLodging }}<th nowrap>宿泊</th>{{ END IF }}
+								{{ if txtMeal    }}<th nowrap>食事</th>{{ END IF }}
+								{{ if txtConfirm }}<th nowrap>結果説明（面談）</th>{{ END IF }}
+								{{ if txtWeekEnd }}<th nowrap>土日検査実施</th>{{ END IF }}
+								{{ if txtCount   }}<th nowrap>検査実施件数</th>{{ END IF }}
+							</tr>
+							<tr>
+								{{ if txtTime    }}<td>{{ txtTime    }}</td>{{ END IF }}
+								{{ if txtStartTm }}<td>{{ txtStartTm }}</td>{{ END IF }}
+								{{ if txtLodging }}<td>{{ txtLodging }}</td>{{ END IF }}
+								{{ if txtMeal    }}<td>{{ txtMeal    }}</td>{{ END IF }}
+								{{ if txtConfirm }}<td>{{ txtConfirm }}</td>{{ END IF }}
+								{{ if txtWeekEnd }}<td>{{ txtWeekEnd }}</td>{{ END IF }}
+								{{ if txtCount   }}<td>{{ txtCount   }}</td>{{ END IF }}
+							</tr>
+						</table>
+					</div>
+
+					<div>
+						<h2 class="sTitle">対象となる主な疾患（調べられる病気）</h2>
+						<p>{{ this::showNames2(C.dcs.k2.omona,"、 ") }}</p>
+					</div>
+
+					<div>
+						<h2 class="sTitle">こんな方におすすめ</h2>
+						<ul class="list">
+						{{ this::showInputstring(C.dcs.k2.osusume,"<li>","</li> ") }}
+						</ul>
+					</div>
+
+					<div>
+						<h3 class="sTitle">検査項目</h3>
+						<div class="iconBlock">
+							<ul class="cate gr">
+							{{ this::showIcons(C.dcs.k2.kensa_koumoku, "<li class='popup'> "," </li> ") }}
+							</ul>
+						</div>
+						<div><div class="moreButton">検査内容について詳しく見る</div></div>
+						<table id="kensa-naiyou-table" style="display:none;">
+						{{ BEGIN kensa_naiyo }}
+						{{ IF first }}
+							<tr>
+								<th colspan="2">{{ dai_name }}</th>
+							</tr>
+						{{ END }}
+						{{ IF chu_status }}{{ IF select_status }}
+							<tr>
+								<td>{{ chu_name}}</td>
+								<td>{{ sho_name }}</td>
+							</tr>
+						{{ END }}{{ END }}
+						{{ END }}
+						</table>
+					</div>
+
+
+					<!-- ========追加できるオプション検査======== -->
+					{{ if OPTION }}
+					<div>
+						<h3 class="sTitle">追加できるオプション検査</h3>
+						<div><div class="moreButton">オプション検査について詳しく見る</div></div>
+						<dl id="option-dl" style="display:none;">
+						{{ BEGIN OPTION }}
+							<dt>{{ option_group_name }}</dt>
+							<dd>
+								{{ IF confirm }}<p>{{ confirm }}</p>{{ END }}
+								<dl>
+								{{ BEGIN option }}
+									<dt>{{ option_name }}：{{ number_format(price_taxin) }}円（税込）</dt>
+									<dd>{{ confirm }}</dd>
+								{{ END }}
+								</dl>
+							</dd>
+						{{ END }}
+						</dl>
+					</div>
+					{{ end }}
+					<!-- ========/追加できるオプション検査======== -->
+
+					<!-- ========医療機関からの質問======== -->
+					{{ if COURSEQUESTION }}
+					<div>
+						<h3 class="sTitle">医療機関からの質問</h3>
+						<p>予約時に以下の質問をさせて頂きます。</p>
+						<dl id="question-dl">
+						{{ BEGIN COURSEQUESTION }}
+							<dt>{{ flg_qa_title }}</dt>
+							<dd>
+								<ul>
+								{{ if flg_qa_answer01 }}<li>{{ flg_qa_answer01 }}</li>{{ end }}
+								{{ if flg_qa_answer02 }}<li>{{ flg_qa_answer02 }}</li>{{ end }}
+								{{ if flg_qa_answer03 }}<li>{{ flg_qa_answer03 }}</li>{{ end }}
+								{{ if flg_qa_answer04 }}<li>{{ flg_qa_answer04 }}</li>{{ end }}
+								{{ if flg_qa_answer05 }}<li>{{ flg_qa_answer05 }}</li>{{ end }}
+								{{ if flg_qa_answer06 }}<li>{{ flg_qa_answer06 }}</li>{{ end }}
+								{{ if flg_qa_answer07 }}<li>{{ flg_qa_answer07 }}</li>{{ end }}
+								{{ if flg_qa_answer08 }}<li>{{ flg_qa_answer08 }}</li>{{ end }}
+								{{ if flg_qa_answer09 }}<li>{{ flg_qa_answer09 }}</li>{{ end }}
+								{{ if flg_qa_answer10 }}<li>{{ flg_qa_answer10 }}</li>{{ end }}
+								</ul>
+							</dd>
+						{{ end }}
+						</dl>
+					</div>
+					{{ end }}
+					<!-- ========/医療機関からの質問======== -->
+
+
+					<div id="notice" style="{{ this::printIfEmpty('display:none;',$C.course_notice,$C.course_cancel) }}" >
+						<h2 class="sTitle">注意事項</h2>
+						<p>{{ nl2br( C.course_notice ) }}</p>
+						{{ IF C.course_cancel }}
+						<p><span style="font-weight:bold;">キャンセルについて</span><br>{{ nl2br( C.course_cancel ) }}</p>
+						{{ END }}
+					</div>
+
+
+					{{ BEGIN C.file.file_location_no_2 }}
+					{{ if url }}
+					<div id="flow">
+						<h3 class="sTitle">受診の流れ</h3>
+						<img src="{{ url }}" alt="{{ memo1 }}" />
+					</div>
+					{{ END }}
+					{{ END }}
+
+
+					<!-- ========決済について======== -->
+					<div id="aboutSettlement ">
+						<h2 class="sTitle">決済について</h2>
+						{{ IF C.flg_pre_account_facility}}
+							{{ IF C.flg_pre_account_course }}
+								{{ IF C.flg_local_payment }}
+									<!-- 事前カード決済、現地決済が選択可能な場合 -->
+									<p>このコースは予約時にクレジットカードによる事前決済が可能です。<br>受診当日の決済をご希望の場合は予約時に現地決済をご指定下さい。なお、現地決済価格は{{ number_format(C.price_taxin) }}円となります。</p>
+									<ul class="attentionNote mt10">
+										<li>※事前カード決済は、本日より90日以内までに来院されるご予約の場合に、ご利用いただけます。本日より91日以上先のご予約をご希望の場合は、現地決済でのご予約をお願いいたします。</li>
+									</ul>
+								{{ ELSE }}
+									<!-- 事前カード決済のみの場合 -->
+									<p>このコースは予約時にクレジットカードによる事前決済となります。</p>
+								{{ END IF }}
+							{{ ELSE }}
+								<!-- 現地決済のみの場合 -->
+								<p>検査料金は受診当日に医療機関でお支払いください。</p>
+							{{ END IF }}
+						{{ ELSE }}
+							<!-- 現地決済のみの場合 -->
+							<p>検査料金は受診当日に医療機関でお支払いください。</p>
+						{{ END IF }}
+					</div>
+					<!-- ========/決済について======== -->
+
+
+					<!-- ========ページ下部ボタンブロック======== -->
+					<!-- ========カレンダー非表示時======== -->
+					{{ IF H.paycall }}
+					<!-- ペイパーコール表示 -->
+					<div class="no_calendar" style="display:none;" >
+					<p class="mt50"><b>このコースのご予約はお電話にて承っております。</b></p>
+					<section class="contactPanel">
+					<div class="orangeBtn01 tel">
+					<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+					</div>
+					</section>
+					<!-- /.no_calendar --></div>
+					<!-- /ペイパーコール表示 -->
+					{{ END }}
+
+					{{ UNLESS H.paycall }}
+					<!-- IVR表示 -->
+					<div class="no_calendar" style="display:none;" >
+					<p class="mt50"><b>このコースのご予約はお電話、またはメールにて承っております。</b></p>
+					<section class="contactPanel">
+					<div class="orangeBtn01 tel">
+					<p>EPARK人間ドック予約受付ダイヤル<span>24時間受付・通話料無料</span><br><em>0066-9809-0000127</em></p>
+					</div>
+					<a href="/contact/" class="orangeBtn01 mail">
+					<p>ご希望の条件から医療機関・コースをご提案<br><em>メールで問い合わせ</em></p>
+					</a>
+					</section>
+					<!-- /.no_calendar --></div>
+					<!-- /IVR表示 -->
+					{{ END }}
+					<!-- ========/カレンダー非表示時======== -->
+
+					<!-- ========カレンダー表示時======== -->
+					<div class="yes_calendar" >
+					{{ IF H.paycall }}
+					<!-- ペイパーコール表示 -->
+					<section class="contactPanel mt50">
+					<a href="#calender" class="orangeBtn01 calendar" onclick="dataLayer.push({'event':'checkvacancy','action':'空席確認（空き状況）','category':'EPARK人間ドック','label':'{{ hospitalNo }} {{ hospitalName }}'});">
+					<p><em>空き状況の確認・予約はこちらから</em></p>
+					</a>
+					<div class="orangeBtn01 tel">
+					<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+					</div>
+					</section>
+					<!-- /ペイパーコール表示 -->
+					{{ END }}
+
+					{{ UNLESS H.paycall }}
+					<!-- IVR表示 -->
+					<section class="contactPanel mt50">
+					<a href="#calender" class="orangeBtn01 calendar" onclick="dataLayer.push({'event':'checkvacancy','action':'空席確認（空き状況）','category':'EPARK人間ドック','label':'{{ hospitalNo }} {{ hospitalName }}'});">
+					<p><em>空き状況の確認・予約はこちらから</em></p>
+					</a>
+					<div class="orangeBtn01 tel">
+					<p>EPARK人間ドック予約受付ダイヤル<span>24時間受付・通話料無料</span><br><em>0066-9809-0000127</em></p>
+					</div>
+					</section>
+					<!-- /IVR表示 -->
+					{{ END }}
+					</div>
+					<!-- ========/カレンダー表示時======== -->
+					<!-- ========/ページ下部ボタンブロック======== -->
+
+				</dd>
+
+			</dl>
+
+	{{ include('detail_hospital/parts_other_course.html') }}
+	{{ include('detail_hospital/parts_info.html') }}
+		</div>
+
+	{{ include('detail_hospital/parts_etc.html') }}
+	</div>
+</article>

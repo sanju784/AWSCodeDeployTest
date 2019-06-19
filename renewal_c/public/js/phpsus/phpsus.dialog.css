@@ -1,0 +1,8 @@
+/**
+ *  phpsus
+ *  jquery.blockUI.js
+ */
+#phpsusDialog .bar { text-align: left; overflow: hidden; border: solid 1px #cccccc; }
+button#dialogClose { float:right; padding :0px;  }
+#phpsusDialog .title { text-align: left; overflow: hidden; background-color: #006600; color: #ffffff;  padding:2px 4px;
+font-weight: bold; }

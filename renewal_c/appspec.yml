@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /composer.json
+    destination: /var/www/html/renewal_c_deployCheck/
+permissions:
+  - object: /var/www/html/renewal_c_deployCheck/
+    owner: www-data
+    group: www-data
+

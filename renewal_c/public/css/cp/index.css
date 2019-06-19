@@ -1,0 +1,396 @@
+@charset "utf-8";
+
+body{ -webkit-font-smoothing: antialiased }
+
+.container{
+	width: 100%;
+	background-color: #f6f6f6;
+}
+
+nav#mainNav { display:none; }
+
+#mainCPHeader{
+	height: 400px;
+	background-image: url(//www.docknet.jp/common/img/mainSearch/bg_birds.png), url(//www.docknet.jp/common/img/mainSearch/bg_bottom.png), url(//www.docknet.jp/common/img/mainSearch/bg_sky.png);
+	background-size: 2000px auto, 2000px auto, contain;
+	background-position: center 42px, center bottom, center top;
+	background-repeat: no-repeat, repeat-x, repeat-x;
+	text-align: center;
+	position: relative;
+}
+
+#Doodle{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+#mainContent{
+	font-feature-settings: "pkna";
+	letter-spacing: .02em;
+	padding-bottom: 3em;
+}
+
+
+#mainContent section{
+	width: 1100px;
+	margin: 6em auto 0;
+}
+
+#mainContent section h2{
+	color: #16B3AF;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#mainContent section h2:before{
+	display: block;
+	margin-bottom: .25em;
+}
+
+#mainContent #Sec000{
+	background-color: #fff;
+	width: 100%;
+	margin-top: 0;
+	padding-top: 1em;
+	text-align: center;
+}
+
+#Sec000 dl{
+	width: 32em;
+	padding: 0 0 1em 0;
+	margin: 0 auto;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+#Sec000 dl small{ font-weight: normal }
+
+#Sec000 dt, #Sec000 dd{
+	margin-bottom: .5em;
+}
+
+#Sec000 dt{
+	background-color: #16b3af;
+	color: #fff;
+	width: 10em;
+	text-align: center;
+	float: left;
+	border-radius: 4px;
+}
+
+#Sec000 dd{
+	margin-left: 11em;
+	text-align: left;
+}
+
+#Sec000 dd:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#mainContent #Sec00{
+	margin-top: 2em;
+}
+
+#Sec00 h2:before, #Sec01 h2:before{
+	content: url('/img/cp/title00.png');
+}
+
+#Sec02 h2:before, #Sec03 h2:before{
+	content: url('/img/cp/title01.png');
+}
+
+#Sec04 h2:before{
+	content: url('/img/cp/title02.png');
+}
+
+#Sec01 table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#Sec01 th, #Sec01 td{
+	padding: .75em;
+	border: 1px solid #283F68;
+	background-color: #fff;
+}
+
+#Sec01 th{
+	width: 9em;
+	text-align: center;
+	font-weight: bold;
+	background: #283F68;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+#Sec01 tr:last-child th{ border-bottom-color: #283f68 }
+
+#Sec01 strong{ font-weight: bold; color: #cc0000 }
+
+#Sec03 p{
+	border: 1px solid #283f68;
+	background-color: #fff;
+	border-radius: 2px;
+	padding: 1em 1.25em;
+}
+
+.btn{
+	display: block;
+	border-radius: 4px;
+	background: #fe8f00;
+	color: #fff !important;
+	text-decoration: none !important;
+	font-weight: bold;
+	padding: .5em;
+	margin: .5em 0;
+	box-shadow: 0 4px #925400;
+	text-align: center;
+	font-size: 1.1em;
+	width: 50%;
+}
+
+.prefs dt{
+	float: left;
+	width: 6.25em;
+	font-weight: bold;
+	text-align: right;
+	margin-bottom: 1em;
+	line-height: 2.5;
+	padding-right: .5em;
+	border-right: 4px solid #16b3af;
+}
+
+.prefs dd{
+	padding-left: 8em;
+	margin-bottom: 1em;
+}
+
+.prefs a{
+	display: inline-block;
+	background-color: #fff;
+	border: 1px solid #283f68;
+	border-radius: 4px;
+	font-weight: bold;
+	padding: .25em .75em;
+	text-align: center;
+	text-decoration: none;
+	margin-right: .5em;
+	margin-bottom: .5em;
+	width: 4.5em;
+	box-shadow: 0 2px #283f68;
+}
+
+.prefs a:hover{
+	color: #fff;
+	background-color: #283f68;
+}
+
+.qa{
+	border: 1px solid #283F68;
+	border-radius: 2px;
+	padding: .75em 1em;
+	margin: .75em 0;
+	background-color: #fff;
+}
+
+.qa dt{
+	font-weight: bold;
+	position: relative;
+	cursor: pointer;
+}
+
+.qa dt:before{
+	content: 'Q';
+	font-size: 1.5em;
+	color: #283F68;
+	padding-right: .5em;
+}
+
+.qa dt:after{
+	content: '';
+	display: inline-block;
+	position: absolute;
+	right: .5em;
+	top: 30%;
+	width: 8px;
+	height: 8px;
+	border-top: 2px solid #333;
+	border-right: 2px solid #333;
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+.qa dt.on:after{
+	-webkit-transform: rotate(315deg);
+	transform: rotate(315deg);
+}
+
+.qa dd{
+	display: none;
+	padding-top: 1em;
+	padding-left: 3.75em;
+	position: relative;
+}
+
+.qa dd:before{
+	content: 'A';
+	display: block;
+	background-color: #16b3af;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.5em;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 1em;
+	text-align: center;
+	line-height: 1.5;
+	position: absolute;
+	margin-left: .5em;
+	left: 0;
+	top: .5em;
+}
+
+.mainFull{
+	width: 100vw;
+}
+
+.ribbon {
+	display: inline-block;
+	position: relative;
+	height: 54px;
+	vertical-align: middle;
+	text-align: center;
+	box-sizing: border-box;
+	margin-top: -7em;
+	padding: 6px 0;
+}
+
+.ribbon:before{/*左側のリボン端*/
+	content: '';
+	position: absolute;
+	width: 10px;
+	bottom: -16px;
+	left: -35px;
+	z-index: 0;
+	border: 20px solid #ab90e0;
+	border-left-color: transparent;/*山形に切り抜き*/
+}
+
+.ribbon:after{/*右側のリボン端*/
+	content: '';
+	position: absolute;
+	width: 10px;
+	bottom: -16px;
+	right: -35px;
+	z-index: 0;
+	border: 20px solid #ab90e0;
+	border-right-color: transparent;/*山形に切り抜き*/
+}
+
+.ribbon span {
+	display: inline-block;
+	position: relative;
+	margin: 0;
+	padding: 0 20px;
+	font-weight: bold;
+	line-height: 54px;
+	color: #FFF;
+	background: #8466bf;
+	z-index: 1;
+	letter-spacing: 0;
+}
+.ribbon span:before {
+	position: absolute;
+	content: '';
+	top: 100%;
+	left: 0;
+	border: none;
+	border-bottom: solid 10px transparent;
+	border-right: solid 15px #523f77;/*左の折り返し部分*/
+}
+.ribbon span:after {
+	position: absolute;
+	content: '';
+	top: 100%;
+	right: 0;
+	border: none;
+	border-bottom: solid 10px transparent;
+	border-left: solid 15px #523f77;/*右の折り返し部分*/
+}
+
+.txt_center{
+	text-align: center;
+}
+
+.pc_none{ display: none }
+
+@media screen and (max-width: 768px){
+	#mainContent{ background-color: #fafafa }
+	#mainCPHeader{ height: 170px }
+	#mainCPHeader img{ max-width: 100vw; width: auto !important; height: auto; max-height: 170px }
+	#mainContent img, #mainContent section{ width: 100% }
+	#mainContent #Sec000{ padding-top: 0 }
+	#mainContent section{ margin: 3em auto 0 }
+	#mainContent section h2{ font-size: 21px }
+	#Doodle{ top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%) }
+	#Sec000 dl{ padding-top: 0; font-size: 14px; width: auto }
+	#Sec000 dt{ width: 21em; padding: .25em; float: none; border-radius: 0; margin: 1em auto .5em }
+	#Sec000 dt:first-child{ margin-top: 0 }
+	#Sec000 dd{ padding: 0;  margin: 0 0 .5em 0; text-align: center; line-height: 1.2 }
+	#Sec000 .pc_none{ font-size: 12px; line-height: 1.5; text-align: center; padding: 1em }
+	#mainContent section h2:before{ content: ''; height: 48px; background-size: contain; background-position: center center; background-repeat: no-repeat }
+	#Sec00 h2:before, #Sec01 h2:before{ background-image: url('/img/cp/title00.png') }
+	#Sec02 h2:before, #Sec03 h2:before{ background-image: url('/img/cp/title01.png') }
+	#Sec04 h2:before{ background-image: url('/img/cp/title02.png') }
+	#Sec01 table{ display: block; font-size: 14px; width: calc(100% - 20px); margin: 0 auto; border: none }
+	#Sec01 tbody, #Sec01 tr, #Sec01 th, #Sec01 td{ display: block; width: 100%; box-sizing: border-box }
+	#Sec01 td{ border: none }
+	#Sec01 th, #Sec01 td{ display: block; padding: .25em .5em; border: none }
+	#Sec00 p, #Sec03 p{ width: calc(100% - 20px);  margin: 0 auto; box-sizing: border-box; font-size: 14px }
+	.prefs{ padding: 0 20px }
+	.prefs dt{
+		float: none;
+		width: 100%;
+		text-align: center;
+		line-height: initial;
+		border-right: none;
+		padding-right: 0;
+		margin-bottom: .25em;
+	}
+	.prefs dd{
+		padding-left: 0;
+		display: flex;
+		display: -webkit-flex;
+		flex-wrap: wrap;
+		justify-content: space-between
+	}
+
+	.prefs a{
+		display: block;
+		padding: .25em;
+		margin-right: 0;
+		width: calc(33% - 5px);
+		box-sizing: border-box;
+	}
+	.prefs a:nth-child(3n){ margin-right: 0 }
+	.btn{ width: 100%; margin-bottom: 1em; box-sizing: border-box }
+	.qa{ width: calc(100% - 20px); margin: .75em auto; box-sizing: border-box; line-height: 1.4; font-size: 14px }
+	.qa dt{ padding-right: 1.5em }
+	.qa dt:before{ font-size: 16px }
+	.qa dt:after{ right: 0 }
+	.ribbon{ background: #8466bf; margin-top: 0; font-size: 12px; display: block; height: auto; padding: 0 }
+	.ribbon:before,
+	.ribbon:after,
+	.ribbon span:before,
+	.ribbon span:after{ display: none }
+	.ribbon span{ line-height: 1.2; padding: 10px }
+	.pc_none{ display: block }
+
+}

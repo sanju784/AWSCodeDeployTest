@@ -1,0 +1,29 @@
+<div id="floatContactView">
+	{{ IF H.paycall }}
+	<!-- ペイパーコール表示 -->
+	<section class="contactPanel">
+	<a href="/detail_hospital/{{ hospitalCode }}/course.html" class="orangeBtn01 course">
+	<p><em>検査コース一覧を見る</em></p>
+	</a>
+	<div class="orangeBtn01 tel">
+	<p>医療機関直通ダイヤル<span>通話料無料</span><br><em>{{ H.paycall }}</em></p>
+	</div>
+	</section>
+	<!-- /ペイパーコール表示 -->
+	{{ END }}
+	
+	{{ UNLESS H.paycall }}
+	<!-- IVR表示 -->
+	<section class="contactPanel">
+	<a href="/detail_hospital/{{ hospitalCode }}/course.html" class="orangeBtn01 course">
+	<p><em>検査コース一覧を見る</em></p>
+	</a>
+	<div class="orangeBtn01 tel ivr">
+	<p>EPARK人間ドック予約受付ダイヤル<br><em>0066-9809-0000127</em></p>
+	<p><span>24時間受付<br>通話料無料</span></p>
+	</div>
+	</section>
+	<!-- /IVR表示 -->
+	{{ END }}
+	<div class="closeView">閉じる</div>
+</div>

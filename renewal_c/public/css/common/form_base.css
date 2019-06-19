@@ -1,0 +1,258 @@
+/* form */
+/* Reset input[type="search"] */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+}
+input[type="search"]:focus {
+  outline-offset: -2px;
+}
+input[type="search"]::-webkit-search-decoration {
+  display: none;
+}
+
+
+
+/* top main search */
+input[type=radio], input[type=checkbox] {
+  display: none;
+}
+.radio01 {
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  position: relative;
+  display: inline-block;
+  margin: 6px 0px 8px 0;
+  padding: 0px 0px 0px 45px;
+  border-radius: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.radio01:after {
+  -webkit-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  content: '';
+}
+.radio01:before {
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  display: block;
+  margin-top: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  content: '';
+  opacity: 0;
+  background-color: #8fc31f;
+}
+input[type=radio]:checked + .radio01:before { opacity: 1; }
+
+
+.radioCk {
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  position: relative;
+  display: inline-block;
+  margin: 6px 0px 8px 0;
+  padding: 0px 0px 0px 45px;
+  border-radius: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.radioCk:after {
+  -webkit-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  margin-top: -15px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  content: '';
+}
+.radioCk:before {
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 23px;
+  display: block;
+  margin-top: -15px;
+  width: 5px;
+  height: 13px;
+  border-right: 4px solid #8fc31f;
+  border-bottom: 4px solid #8fc31f;
+  content: '';
+  opacity: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+input[type=radio]:checked + .radioCk:before { opacity: 1; }
+
+
+
+.checkbox01 {
+  box-sizing: border-box;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  position: relative;
+  display: inline-block;
+  margin: 6px 0px 8px 0;
+  padding: 0px 0px 0px 45px;
+  border-radius: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.checkbox01:after {
+  -webkit-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  margin-top: -11px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  content: '';
+}
+.checkbox01.disabled:after {
+ background-color:#f0f0f0;
+}
+.checkbox01:before {
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  top: 50%;
+  left: 23px;
+  display: block;
+  margin-top: -11px;
+  width: 5px;
+  height: 13px;
+  border-right: 4px solid #8fc31f;
+  border-bottom: 4px solid #8fc31f;
+  content: '';
+  opacity: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+input[type=checkbox]:checked + .checkbox01:before { opacity: 1; }
+
+/*input[type=checkbox]:disabled + .checkbox01:after { opacity: 0.5; } */
+
+.datepicker,
+input[type=text] { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; appearance: none; height: 40px; border:1px solid #ddd; border-radius:4px; margin: 0 10px; padding: 0 3px 0 7px; width:200px; }
+.datepicker::-webkit-input-placeholder,
+input[type=text]::-webkit-input-placeholder { color: #aaa; }
+.datepicker:-ms-input-placeholder,
+input[type=text]:-ms-input-placeholder { color: #aaa; }
+.datepicker::-moz-placeholder,
+input[type=text]::-moz-placeholder { color: #aaa; }
+
+input[type=text].long650 { width: 650px; }
+
+textarea { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; appearance: none; height: 150px; width: 750px; border: 1px solid #ddd; border-radius: 4px; margin: 0 10px; padding: 0 3px 0 7px; }
+
+.select-wrap {
+    position: relative;
+    width:200px;
+    display: inline-block;
+}
+.select-wrap:before {
+    z-index: 1;
+    position: absolute;
+    right: 13px;
+    top: 17px;
+    pointer-events: none;
+    content: ''; width: 7px; height: 7px; border-left: 4px solid #0ea8a4; border-bottom: 4px solid #0ea8a4;
+    -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg); -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg);
+    border-radius: 2px;
+}
+select{
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 40px;
+    padding: 8px 12px;
+    border:1px solid #ddd;
+    width:200px;
+    border-radius:4px;
+}
+select option{
+  background-color: #fff;
+  color: #333;
+}
+select::-ms-expand {
+  display: none;
+}
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #828c9a;
+}
+.select-wrap.select-primary:before{
+  color:#fff;
+}
+.select-wrap.select-primary > select{
+  background:#0084B4;
+  color:#fff;
+  border-color:#0084B4;
+}
+.select-wrap.select-primary > select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #fff;
+}
+
+.select-wrap.select-inverse:before{
+  color:#fff;
+}
+.select-wrap.select-inverse > select{
+  color:#fff;
+  border-color: #fff;
+}
+
+.select-wrap.select-inverse > select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #fff;
+}
+
+
+.datepicker { text-align: left; }
+.datepicker+span { position: relative; top: -2px; display: inline-block; width: 40px; height: 40px; background-color: #0ea8a4; color: #fff; vertical-align: middle; border-radius: 3px; background-image: url(../../common/img/common/icon_calender_w.png); background-size: 23px 23px; background-position: center center; background-repeat: no-repeat; cursor: pointer; }
+.datepicker+span:hover { filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75; }
+
+
+
+/* top main search */
+
+/* form */

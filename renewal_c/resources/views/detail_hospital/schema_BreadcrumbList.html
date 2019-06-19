@@ -1,0 +1,250 @@
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement":
+	[
+{{ this::equal(meta.type,"detail_basic.html") }}
+{{ IF equal }}
+//	<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+		{
+			"@type": "ListItem",
+			"position":1,
+			"item": {
+				"@id":"https://www.docknet.jp/",
+				"name":"人間ドックと検診予約サイト EPARK人間ドック"
+			}
+		}
+//	<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":2,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL1 }}",
+				"name":"{{ strAreaName1 }}の医療機関一覧"
+			}
+		}
+	{{ if strAreaName2 }}
+//	<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":3,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL2 }}",
+				"name":"{{ strAreaName2 }}の医療機関一覧"
+			}
+		}
+	{{ end }}
+//	<li>{{ hospitalName }}の予約</li>
+		,{
+			"@type": "ListItem",
+			"position":4,
+			"item": {
+				"@id":"{{ og_url }}",
+				"name":"{{ hospitalName }}の予約"
+			}
+		}
+{{ end IF }}
+{{ this::equal(meta.type,"detail_course.html") }}
+{{ IF equal }}
+//	<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+		{
+			"@type": "ListItem",
+			"position":1,
+			"item": {
+				"@id":"https://www.docknet.jp/",
+				"name":"人間ドックと検診予約サイト EPARK人間ドック"
+			}
+		}
+//	<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":2,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL1 }}",
+				"name":"{{ strAreaName1 }}の医療機関一覧"
+			}
+		}
+	{{ if strAreaName2 }}
+//	<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":3,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL2 }}",
+				"name":"{{ strAreaName2 }}の医療機関一覧"
+			}
+		}
+	{{ end }}
+//	<li><a href="./">{{ hospitalName }}の予約</a></li>
+		,{
+			"@type": "ListItem",
+			"position":4,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ hospitalCode  }}/basic.html",
+				"name":"{{ hospitalName }}の予約"
+			}
+		}
+//	<li>{{ hospitalName }}の検査コース一覧</li>
+		,{
+			"@type": "ListItem",
+			"position":5,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ hospitalCode  }}/course.html",
+				"name":"{{ hospitalName }}の検査コース一覧"
+			}
+		}
+{{ end IF }}
+{{ this::equal(meta.type,"detail_calendar.html") }}
+{{ IF equal }}
+//	<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+		{
+			"@type": "ListItem",
+			"position":1,
+			"item": {
+				"@id":"https://www.docknet.jp/",
+				"name":"人間ドックと検診予約サイト EPARK人間ドック"
+			}
+		}
+//	<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":2,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL1 }}",
+				"name":"{{ strAreaName1 }}の医療機関一覧"
+			}
+		}
+	{{ if strAreaName2 }}
+//	<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":3,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL2 }}",
+				"name":"{{ strAreaName2 }}の医療機関一覧"
+			}
+		}
+	{{ end }}
+//	<li><a href="./">{{ hospitalName }}の予約</a></li>
+		,{
+			"@type": "ListItem",
+			"position":4,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ hospitalCode }}/basic.html",
+				"name":"{{ hospitalName }}の予約"
+			}
+		}
+//	<li>{{ hospitalName }}の空き状況カレンダー</li>
+		,{
+			"@type": "ListItem",
+			"position":5,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ hospitalCode }}/calendar.html",
+				"name":"{{ hospitalName }}の空き状況カレンダー"
+			}
+		}
+{{ end IF }}
+{{ this::equal(meta.type,"detail_photo.html") }}
+{{ IF equal }}
+//	<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+		{
+			"@type": "ListItem",
+			"position":1,
+			"item": {
+				"@id":"https://www.docknet.jp/",
+				"name":"人間ドックと検診予約サイト EPARK人間ドック"
+			}
+		}
+//	<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":2,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL1 }}",
+				"name":"{{ strAreaName1 }}の医療機関一覧"
+			}
+		}
+	{{ if strAreaName2 }}
+//	<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":3,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL2 }}",
+				"name":"{{ strAreaName2 }}の医療機関一覧"
+			}
+		}
+	{{ end }}
+//	<li><a href="./">{{ hospitalName }}の予約</a></li>
+		,{
+			"@type": "ListItem",
+			"position":4,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ hospitalCode }}/basic.html",
+				"name":"{{ hospitalName }}の予約"
+			}
+		}
+//	<li>{{ hospitalName }}の写真</li>
+		,{
+			"@type": "ListItem",
+			"position":5,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ hospitalCode }}/photo.html",
+				"name":"{{ hospitalName }}の写真"
+			}
+		}
+{{ end IF }}
+{{ this::equal(meta.type,"detail") }}
+{{ IF equal }}
+//	<li><a href="/">人間ドックと検診予約サイト EPARK人間ドック</a></li>
+		{
+			"@type": "ListItem",
+			"position":1,
+			"item": {
+				"@id":"https://www.docknet.jp/",
+				"name":"人間ドックと検診予約サイト EPARK人間ドック"
+			}
+		}
+//	<li><a href="{{ areaURL1 }}">{{ strAreaName1 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":2,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL1 }}",
+				"name":"{{ strAreaName1 }}の医療機関一覧"
+			}
+		}
+	{{ if strAreaName2 }}
+//	<li><a href="{{ areaURL2 }}">{{ strAreaName2 }}の医療機関一覧</a></li>
+		,{
+			"@type": "ListItem",
+			"position":3,
+			"item": {
+				"@id":"https://www.docknet.jp{{ areaURL2 }}",
+				"name":"{{ strAreaName2 }}の医療機関一覧"
+			}
+		}
+	{{ end }}
+//	<li><a href="../">{{ hospitalName }}の予約</a></li>
+		,{
+			"@type": "ListItem",
+			"position":4,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ hospitalCode }}/basic.html",
+				"name":"{{ hospitalName }}の予約"
+			}
+		}
+//	<li>{{ hospitalName }}の{{ C.name }}予約</li>
+		,{
+			"@type": "ListItem",
+			"position":5,
+			"item": {
+				"@id":"https://www.docknet.jp/detail_hospital/{{ C.hospital_code }}/detail/{{ C.code }}.html",
+				"name":"{{ hospitalName }}の{{ C.name }}予約"
+			}
+		}
+{{ end IF }}
+	]
+}
+</script>

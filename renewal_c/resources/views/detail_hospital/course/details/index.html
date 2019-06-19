@@ -1,0 +1,19 @@
+{{ include('detail_hospital/headtag.html') }}
+<body>
+<script type="text/javascript" src="/ajs/popup.js"></script>
+{{ include('detail_hospital/course/parts_popup.html') }}
+{{ include('header.html') }}
+{{ include('detail_hospital/breadcrumb.html') }}
+	<div class="container">
+		<div id="mainContent">
+{{ include('detail_hospital/course/details/main.html') }}
+		</div>
+	</div><!-- .container -->
+{{ include('footer.html') }}
+{{ include('detail_hospital/course/details/floatcontactview.html') }}
+{{ include('detail_hospital/course/details/schema_Course.html') }}
+{{ include('detail_hospital/schema_BreadcrumbList.html') }}
+{{ include('parts/schema_Common.html') }}
+<script type="text/javascript" src="/common/js/speedchk_ningendock.js"></script>
+</body>
+</html>

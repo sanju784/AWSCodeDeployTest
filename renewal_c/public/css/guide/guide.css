@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+.step {
+  border-bottom: 1px dotted #cccccc;
+  padding: 0 0 40px;
+  margin: 0 0 30px;
+}
+
+.step:last-child {
+  border: none;
+  padding: 0;
+  margin: 0 0 60px;
+}
+
+.stepTitle {
+  overflow: hidden;
+  margin: 0 0 10px;
+}
+
+.step:last-child .stepTitle {
+  margin: 0;
+}
+
+.number {
+  background: #8fc31f;
+  border-radius: 30px;
+  width: 60px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1;
+  float: left;
+  margin: 0 10px 0 0;
+  padding: 14px 0 9px;
+}
+
+.number span {
+  display: inline-block;
+  font-size: 18px;
+  padding: 3px 0 0;
+}
+
+.txt01 {
+  display: inline-block;
+  font-size: 21px;
+  font-weight: bold;
+  padding: 3px 0 0;
+  border-bottom: 1px solid #333333;
+}
+
+.txt02 {
+  font-size: 16px;
+  color: #283f68;
+}
+
+.imgWrapper {
+  overflow: hidden;
+  text-align: center;
+  font-size: 0;
+}
+
+.imgBox {
+  display: inline-block;
+  margin: 0 30px 0 0;
+  text-align: center;
+}
+
+.imgBox:last-child {
+  margin: 0;
+}
+
+.imgBox img {
+  display: block;
+  margin: 0 0 15px;
+}
+
+.imgBox p {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.searchBox {
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  text-align: center;
+  position: relative;
+  font-size: 0;
+}
+
+.searchBox::before {
+  content: '';
+  display: block;
+  border-right: 25px solid #283f68;
+  height: 30px;
+  position: absolute;
+  top: -40px;
+  left: 540px;
+}
+
+.searchBox::after {
+  content: '';
+  border-style: solid;
+  border-width: 25px 25px 0 26px;
+  border-color: #283f68 transparent transparent transparent;
+  position: absolute;
+  top: -10px;
+  left: 527px;
+}
+
+.searchBox .txt {
+  background: #eff8f8;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  padding: 20px 0;
+  margin: 0 0 20px;
+}
+
+.point {
+  margin: 0 0 30px;
+}
+
+.pointTitle {
+  overflow: hidden;
+  margin: 0 0 10px;
+}
+
+.pointTitle .number {
+  background: #283f68;
+  padding: 22px 0;
+}
+
+.searchBox2 {
+  background-color: #eff8f8;
+  border-radius: 6px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.searchBox2 .txt {
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.greenBtn01 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 280px;
+  padding: 0 15px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 auto;
+  display: inline-block;
+}

@@ -1,0 +1,20 @@
+.aboutPrivacy { padding:30px 0 50px; }
+.aboutPrivacy .privacyLead { text-align:right; }
+.aboutPrivacy h3 { margin-top:20px; font-weight:bold; }
+.aboutPrivacy h4,
+.aboutPrivacy h5 { margin-top:20px; font-weight:bold; }
+.aboutPrivacy table { margin:10px 0 0; }
+.aboutPrivacy table tr th { background-color:#f1f1f1; padding:10px 15px; border:1px solid #ccc; }
+.aboutPrivacy table tr td { padding:10px 15px; }
+.aboutPrivacy table tr th:first-child,
+.aboutPrivacy table tr td:first-child { width:230px; word-break:break-all; }
+.aboutPrivacy table tr th:not(:first-child),
+.aboutPrivacy table tr td:not(:first-child) { width:auto; }
+.aboutPrivacy ul li { list-style-type:disc; list-style-position:outside; margin-left:20px; }
+.aboutPrivacy ol li { list-style-type:decimal; list-style-position:outside; margin-left:20px; }
+.aboutMailmag { margin:40px 0 0; border:5px solid #6b9f01; border-radius:8px; padding:10px 20px; }
+.aboutMailmag ul li { list-style-type:disc; list-style-position:outside; margin-left:20px; }
+.aboutMailmag label { border:1px solid #6b9f01; padding:10px 20px 10px 45px; border-radius:8px; }
+.aboutAgreement label { border:1px solid #ccc; padding:10px 20px 10px 45px; border-radius:8px; }
+.aboutAgreement { margin-top:40px; }
+

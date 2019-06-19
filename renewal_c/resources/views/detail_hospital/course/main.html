@@ -1,0 +1,37 @@
+<article>
+
+	<div id="resultView">
+		<h2 class="mTitle">{{ hospitalName }}</h2>
+	        {{ include('detail_hospital/parts_details.html') }}
+
+		<div id="scCourse">
+			<nav id="resultTab" class="greenTab">
+		  	<ul>
+		  		<li id="showFacilities"><a href="/detail_hospital/{{ hospitalCode }}/basic.html">施設情報</a></li>
+		  		<li id="showCourse" class="on"><a href="/detail_hospital/{{ hospitalCode }}/course.html">検査コース</a></li>
+		  		<li id="showCalendar"><a href="/detail_hospital/{{ hospitalCode }}/calendar.html">空き状況カレンダー</a></li>
+		  		<li id="showPhoto"><a href="/detail_hospital/{{ hospitalCode }}/photo.html">写真</a></li>
+		  	</ul>
+			</nav>
+
+			<dl class="list">
+
+				{{ BEGIN DATA }}
+                {{ include('detail_hospital/course_course.html') }}
+                {{ END DATA }}
+			</dl>
+
+			{{ IF ALL_COURSE }}
+				<div class="courseAll">
+					<a href="/detail_hospital/{{ hospitalCode }}/course.html" class="greenBtn01">全ての検査コースを見る</a>
+				</div>
+			{{ END IF }}
+
+	        {{ include('detail_hospital/parts_info.html') }}
+
+		</div>
+
+	{{ include('detail_hospital/parts_etc.html') }}
+
+	</div>
+</article>

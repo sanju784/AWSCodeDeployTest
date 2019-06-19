@@ -1,0 +1,35 @@
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Course",
+	"name": "{{ C.name }}",
+	"description": "{{ C.course_point }}",
+	"provider": {
+		"@type": "MedicalClinic",
+		"name": "{{ hospitalName }}",
+		"url": "https://www.docknet.jp/detail_hospital/{{ C.hospital_code }}/basic.html"
+	},
+	"offers": {
+		"@type": "Offer",
+		"price": "{{ C.price_taxin }}",
+		"priceCurrency": "JPY"
+	},
+	"potentialAction": {
+		"@type": "ReserveAction",
+		"target": {
+			"@type": "EntryPoint",
+			"inLanguage": "ja-JP",
+			"actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/IOSPlatform", "http://schema.org/AndroidPlatform"],
+			"urlTemplate": "https://www.docknet.jp/detail_hospital/{{ C.hospital_code }}/detail/{{ C.code }}.html"
+		},
+		"result": {
+			"@type": "Reservation",
+			"name": "ネット予約"
+		},
+		"agent": {
+			"@type": "Organization",
+			"name": "EPARK人間ドック"
+		}
+	}
+}
+</script>

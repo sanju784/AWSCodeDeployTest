@@ -1,0 +1,37 @@
+<script type="application/ld+json">
+[
+{{ this::setIntValue("count","reset") }}
+{{ this::equal(meta.type,"detail_basic.html") }}{{ IF equal }}
+{{ BEGIN OTHERCOURSE }}
+{{ if count }},{{ end }}
+{{ this::setIntValue("count","inc") }}
+{
+	"@context":"http://schema.org",
+	"@type":"Course",
+	"name":"{{ name }}",
+	"description":"{{ course_point }}",
+	"provider":{
+		"@type":"Organization",
+		"name":"{{ hospital_name }}",
+		"sameAs":"https://www.docknet.jp/detail_hospital/{{ hospital_code }}/basic.html"
+	}
+}
+{{ END OTHERCOURSE }}{{ END detail_basic.html }}
+{{ this::equal(meta.type,"detail_course.html") }}{{ IF equal }}
+{{ BEGIN DATA }}
+{{ if count }},{{ end }}
+{{ this::setIntValue("count","inc") }}
+{
+	"@context":"http://schema.org",
+	"@type":"Course",
+	"name":"{{ name }}",
+	"description":"{{ course_point }}",
+	"provider":{
+		"@type":"Organization",
+		"name":"{{ hospital_name }}",
+		"sameAs":"https://www.docknet.jp/detail_hospital/{{ hospital_code }}/basic.html"
+	}
+}
+{{ END DATA }}{{ END detail_course.html }}
+]
+</script>

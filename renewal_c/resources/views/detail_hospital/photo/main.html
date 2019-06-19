@@ -1,0 +1,44 @@
+<article>
+
+	<div id="resultView">
+		<h2 class="mTitle">{{ hospitalName }}</h2>
+		{{ include('detail_hospital/parts_details.html') }}
+
+		<div id="scCourse">
+			<nav id="resultTab" class="greenTab">
+			<ul>
+				<li id="showFacilities"><a href="/detail_hospital/{{ hospitalCode }}/basic.html">施設情報</a></li>
+				<li id="showCourse"><a href="/detail_hospital/{{ hospitalCode }}/course.html">検査コース</a></li>
+				<li id="showCalendar"><a href="/detail_hospital/{{ hospitalCode }}/calendar.html">空き状況カレンダー</a></li>
+				<li id="showPhoto" class="on"><a href="/detail_hospital/{{ hospitalCode }}/photo.html">写真</a></li>
+			</ul>
+			</nav>
+
+			<div id="photo">
+				<nav class="btnTab">
+					<ul>
+						<li id="all" class="current">全て</li>
+						<li id="staff">スタッフ</li>
+						<li id="facility">設備</li>
+						<li id="interior">院内</li>
+						<li id="exterior">外観</li>
+						<li id="other">その他</li>
+					</ul>
+				</nav>
+
+				<ul class="list">
+		{{ BEGIN g8only2 }}
+					<li class="{{ class }} mhItem">
+						<figure>
+							<div class="photo"><img src="{{ url }}" alt="{{ memo1 }}" width="530" height="398" /></div>
+							<figcaption>{{ memo2 }}</figcaption>
+						</figure>
+					</li>
+		{{ END }}
+				</ul>
+			</div>
+		{{ include('detail_hospital/parts_info.html') }}
+		</div>
+	{{ include('detail_hospital/parts_etc.html') }}
+	</div>
+</article>

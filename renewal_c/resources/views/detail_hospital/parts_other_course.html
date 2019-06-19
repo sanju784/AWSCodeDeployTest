@@ -1,0 +1,70 @@
+	{{ IF OTHERCOURSE }}
+	<section id="otherCourse">
+	{{ UNLESS BASIC_PAGE }}
+		<h3 class="sTitle">{{ hospitalName }}のその他の検査コース</h3>
+	{{ END }}
+	{{ IF BASIC_PAGE }}
+		<h3 class="sTitle">{{ hospitalName }}の検査コース</h3>
+	{{ END }}
+
+		<ul>
+			{{ BEGIN OTHERCOURSE }}
+			<li>
+				<div>{{ BEGIN file.file_location_no_1 }}<img src="{{ url }}" alt="{{ memo1 }}" style="width:100%;">{{ END }}</div>
+				<div>
+				<h3>
+					<div><a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">{{ name }}</a></div>
+					<div>
+						{{ IF flg_price }}
+							{{ IF flg_pre_account_facility }}
+								<!-- 事前決済価格 -->
+								{{IF flg_pre_account_course}}
+									<span class="jizenPriceIcon">事前決済価格</span>
+									<span class="fs16px red">料金：</span>　
+									<span class="red">{{ number_format(pre_account_price_taxin) }}円</span>
+									<span class="fs16px gray">（税込）</span><br>
+								<!-- 通常価格 -->
+								{{ ELSE }}
+								<span class="fs16px red">料金：</span>　
+								<span class="red">{{ number_format(price_taxin) }}円</span>
+								<span class="fs16px gray">（税込）</span><br>
+								{{ END IF }}
+							{{ ELSE }}
+							<!-- 通常価格 -->
+							<span class="fs16px red">料金：</span>　
+							<span class="red">{{ number_format(price_taxin) }}円</span>
+							<span class="fs16px gray">（税込）</span><br>
+							{{ END IF }}
+						{{ END IF }}
+						{{ IF flg_price_memo }}<span class="fs16px gray">{{ price_memo }}</span>{{ END IF}}
+					</div>
+				</h3>
+				<div class="iconBlock">
+					<ul class="cate">
+					<!-- 事前カード払いアイコン -->
+						{{ IF flg_pre_account_facility }}
+							{{ IF flg_pre_account_course }}
+								{{ IF flg_local_payment }}
+								<li class="jizenCardIcon">事前カード払い可</li>
+								{{ ELSE }}
+								<li class="jizenCardIcon">事前カード払いのみ</li>
+								{{ END IF}}
+							{{ END IF }}
+						{{ END IF }}
+					<!-- /事前カード払いアイコン -->
+					{{ this::showIcons(dcs.k2.tokucho, "<li> "," </li> ") }}
+					{{ IF OPTION }}<li>オプションあり</li>{{ END }}
+					</ul>
+					<ul class="cate gr">
+					{{ this::showIcons(dcs.k2.kensa_koumoku, "<li class='popup'> "," </li> ") }}
+					</ul>
+				</div>
+				<p>{{ nl2br(course_point_short) }}<a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">続きを見る</a></p>
+				</div>
+
+			</li>
+			{{ END }}
+		</ul>
+		<div class="hdr right"><a href="/detail_hospital/{{ hospitalCode }}/course.html">検査コース一覧を見る</a></div>
+	</section>
+	{{ END }}

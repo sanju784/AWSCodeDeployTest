@@ -1,0 +1,72 @@
+{{ include('detail_hospital/headtag.html') }}
+<body>
+<script type="text/javascript" src="/ajs/basic.js"></script>
+{{ include('header.html') }}
+<div class="container">
+{{ include('detail_hospital/breadcrumb.html') }}
+<h2 class="mTitle">{{ hospitalName }}</h2>
+{{ include('detail_hospital/parts_details.html') }}
+</div>
+<nav id="resultTab" class="greenTab">
+	<ul>
+		<li id="showFacilities" class="on">施設情報</li>
+		<li id="showCourse"><a href="course.html">検査コース</a></li>
+		<li id="showCalendar"><a href="calendar.html">空き状況カレンダー</a></li>
+		<li id="showPhoto"><a href="photo.html">写真</a></li>
+	</ul>
+</nav>
+
+<section id="mainView">
+{{ BEGIN files.g1.l1 }}
+	<h2><img src="{{ url }}" alt="{{ memo1 }}" width="1100" height="698" /></h2>
+{{ END }}
+	<ul class="photos">
+		{{ BEGIN files.g2.l1 }}
+		<li><img src="{{ url }}" alt="{{ memo1 }}" width="273" height="206" /></li>
+		{{ END }}
+		{{ BEGIN files.g2.l2 }}
+		<li><img src="{{ url }}" alt="{{ memo1 }}" width="273" height="206" /></li>
+		{{ END }}
+		{{ BEGIN files.g2.l3 }}
+		<li><img src="{{ url }}" alt="{{ memo1 }}" width="273" height="206" /></li>
+		{{ END }}
+		{{ BEGIN files.g2.l4 }}
+		<li><img src="{{ url }}" alt="{{ memo1 }}" width="273" height="206" /></li>
+		{{ END }}
+	</ul>
+</section>
+
+<div class="container">
+	<div id="mainContent">
+	{{ include('detail_hospital/main.html') }}
+	</div>
+</div><!-- .container -->
+
+{{ include('footer.html') }}
+{{ include('detail_hospital/floatcontactview.html') }}
+
+<nav id="BasicLocalNav">
+	<ul>
+		<li><a href="#">TOP</a></li>
+		<li><a href="course.html">検査コース一覧</a></li>
+		{{ IF files.g8 }}
+		<li><a href="#photos">施設写真</a></li>
+		{{ END }}
+		<li><a href="#schedule">診療時間</a></li>
+		<li><a href="#access">地図・アクセス</a></li>
+		{{ IF files.g5 }}
+		<li><a href="#kodawari">こだわり</a></li>
+		{{ END }}
+		{{ IF files.g6 }}
+		<li><a href="#interview">インタビュー</a></li>
+		{{ END }}
+		<li><a href="#facility">施設情報</a></li>
+	</ul>
+</nav>
+
+{{ include('detail_hospital/schema_BreadcrumbList.html') }}
+{{ include('detail_hospital/schema_ItemList.html') }}
+{{ include('parts/schema_Common.html') }}
+<script type="text/javascript" src="/common/js/speedchk_ningendock.js"></script>
+</body>
+</html>

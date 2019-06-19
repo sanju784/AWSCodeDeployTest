@@ -1,0 +1,122 @@
+<dt class="dTitle green">
+<div><a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">{{ name }}</a></div>
+<div>
+	{{ IF flg_price }}
+		<!-- 事前決済価格 -->
+		{{ IF flg_pre_account_facility }}
+			{{ IF flg_pre_account_course }}
+				<span class="jizenPriceIcon">事前決済価格</span><br>
+				<span class="red">料金：</span>
+				<span class="fs24px red">{{ number_format(pre_account_price_taxin) }}円</span><span>（税込）</span><br>
+			<!-- 通常価格 -->
+			{{ ELSE }}
+			<span class="red">料金：</span>
+			<span class="fs24px red">{{ number_format(price_taxin) }}円</span><span>（税込）</span><br>
+			{{ END IF }}
+		<!-- 通常価格 -->
+		{{ ELSE }}
+			<span class="red">料金：</span>
+			<span class="fs24px red">{{ number_format(price_taxin) }}円</span><span>（税込）</span><br>
+		{{ END IF }}
+	{{ END IF }}
+	{{ if flg_price_memo }}<span>{{ price_memo }}</span>{{ END IF }}
+
+</div>
+</dt>
+<dd>
+	<div class="iconBlock">
+		<ul class="cate">
+			<!-- 事前カード払いアイコン -->
+			{{ IF flg_pre_account_facility }}
+				{{ IF flg_pre_account_course }}
+					{{ IF flg_local_payment }}
+						<li class="jizenCardIcon">事前カード払い可</li>
+					{{ ELSE }}
+						<li class="jizenCardIcon">事前カード払いのみ</li>
+					{{ END IF }}
+				{{ END IF }}
+			{{ END IF }}
+			<!-- /事前カード払いアイコン -->
+		{{ this::showIcons(dcs.k2.tokucho, "<li>","</li> ") }}
+		{{ IF OPTION }}<li>オプションあり</li>{{ END }}
+		</ul>
+		<ul class="cate gr">
+		{{ this::showIcons(dcs.k2.kensa_koumoku, "<li class='popup'>","</li> ") }}
+		</ul>
+	</div>
+	{{ BEGIN file.file_location_no_1 }}
+	<ul class="photo">
+		<li class="mainphoto"><img src="{{ url }}" alt="{{ memo1 }}" /></li>
+	</ul>
+	{{ END }}
+	<div class="details">
+		<p>{{ nl2br(course_point_short) }}<a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html">続きを見る</a></p>
+		<p class="recommend">こんな方にオススメ</p>
+		<ul>
+		{{ this::showInputstring(dcs.k2.osusume, "<li>","</li> ") }}
+		</ul>
+	</div>
+	<div class="moreDetails">
+		{{ IF VACANCY }}
+		<table>
+			<tr>
+				{{ BEGIN VACANCY }}
+				<th>{{ mm }}月</th>
+				{{ END }}
+			</tr>
+			<tr>
+				{{ BEGIN  VACANCY }}
+				{{ IF appOk}}<td><span style="color:blue;">○</span></td>{{ END IF }}
+				{{ UNLESS appOk}}<td>×</td>{{ END IF }}
+				{{ END }}
+			</tr>
+		</table>
+		{{ END IF }}
+		{{ UNLESS VACANCY }}
+        {{ IF paycall }}
+		<!-- ペイパーコール表示 -->
+		<dl>
+		<dt>このコースのご予約はお電話にて承っております。</dt>
+		<dd>
+		<!--<p class="title">医療施設直通ダイヤル</p>-->
+		<p class="tel mt10">{{ paycall }}<br><span class="tel-num-gray">（通話料無料・24時間受付）</span></p>
+		</dd>
+		</dl>
+		<!-- /ペイパーコール表示 -->
+        {{ END IF paycall }}
+        {{ UNLESS paycall }}
+		<!-- IVR表示 -->
+		<dl>
+		<dt>こちらのコースのご予約はお電話またはメールにて承っております。</dt>
+		<dd>
+		<!--<p class="title">人間ドック・検診受付専用ダイヤル</p>-->
+		<p class="tel">0066-9809-0000127<br><span class="tel-num-gray">（通話料無料・24時間受付）</span></p>
+		<p class="mail"><a href="/contact/">メールで問い合わせる</a></p>
+		</dd>
+		</dl>
+		<!-- /IVR表示 -->
+        {{ END UNLESS paycall }}
+
+        {{ END UNLESS }}
+		<div>
+			<a href="/detail_hospital/{{ hospital_code }}/detail/{{ code }}.html" class="booking navyBtn01" onclick="dataLayer.push({'event':'checkvacancy','action':'空席確認（詳細確認）','category':'EPARK人間ドック','label':'{{ hospital_no }} {{ hospital_name }}'});">詳細を見て予約する</a>
+            {{ UNLESS consideration }}
+			<a href="/mypage/favorite.html?cmd-add=1&hno={{ hospital_no }}&cno={{ course_no }}#my_course" class="favorite addmyshop" onclick="dataLayer.push({'event':'addmyshop','action':'コース検討中登録','category':'EPARK人間ドック','label':'{{ hospital_no }} {{ hospital_name }}'});">このコースをお気に入りへ保存</a>
+            {{ END UNLESS }}
+            {{ IF consideration }}<div style="height:60px;"></div>{{ END }}
+		</div>
+	</div>
+	{{ IF searchPage }}
+	<div class="hospitalInfo">
+		<h3>このコースを提供している医療機関</h3>
+		<div class="hospitalInfoInner">
+			<p><img src="{{ BEGIN files.g2.l1 }}{{ url }}{{ END }}" alt="{{ hospital_name }}" width="140" /></p>
+			<dl>
+				<dt><a href="/detail_hospital/{{ hospital_code }}/">{{ hospital_name }}</a><a href="/detail_hospital/{{ hospital_code }}/#access">地図</a></dt>
+				<dd class="address">{{pref_name}}{{ district_name }}{{ address1 }}{{ address2 }}</dd>
+				<dd class="access">最寄り駅： {{ stations }}</dd>
+			</dl>
+		</div>
+	</div>
+	{{ END /searchPage }}
+</dd>

@@ -1,0 +1,13 @@
+<div class="details">
+	<ul>
+		<li class="address">{{ strAreaName }}{{ strAddress }} <a href="/detail_hospital/{{ hospitalCode  }}/basic.html#access">地図・アクセス</a></li>
+		{{ if strStationName }}<li class="access">最寄り駅：{{ strStationName }}</li>{{ END IF }}
+		<li class="holiday">休診日：{{ strConsultation }}{{ IF consultationNote }}（{{ consultationNote }}）{{ END IF }}</li>
+	</ul>
+	<div>
+		<a href="/detail_hospital/{{ hospitalCode  }}/course.html" class="booking greenBtn01">検査コース一覧を見る</a>
+        {{ UNLESS consideration }}
+		<a href="/mypage/favorite.html?cmd-add=1&hno={{ hospitalNo }}#my_hospital" class="favorite addmyshop" onclick="dataLayer.push({'event':'addmyshop','action':'施設検討中登録','category':'EPARK人間ドック','label':'{{ hospitalNo }} {{ hospitalName }}'});">この施設をお気に入りへ保存</a>
+        {{ END UNLESS }}
+	</div>
+</div>

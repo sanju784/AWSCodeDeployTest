@@ -1,0 +1,12 @@
+	<section id="otherFacilities">
+		<h3>このエリアの他の施設を見る</h3>
+		<ul>
+            {{ BEGIN etc.etc }}
+			<li><a href="/detail_hospital/{{ code }}/basic.html">
+                {{ BEGIN files.g2.l1 }}<img src="{{ url }}" alt="{{ memo1 }}" style="width: 186px;" >{{ END }}
+				<p>{{ name }}</p>
+			</a>{{ pref }}{{ district_name }}{{ address1 }}</li>
+            {{ END }}
+		</ul>
+		<p><a href="/search?pref={{ etc.pref.pref_no }}">{{ etc.pref.name }}の医療機関をもっと見る</a></p>
+	</section>
